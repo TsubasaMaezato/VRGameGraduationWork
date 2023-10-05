@@ -20,7 +20,6 @@ public class Player : MonoBehaviour
         {
             rb.velocity = -transform.forward * speed;
         }
-
         // Sキー（後方移動）
         if (Input.GetKey(KeyCode.S))
         {
@@ -30,13 +29,13 @@ public class Player : MonoBehaviour
         // Dキー（右移動）
         if (Input.GetKey(KeyCode.D))
         {
-            rb.velocity = transform.right * speed;
+            rb.velocity = -transform.right * speed;
         }
 
         // Aキー（左移動）
         if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity = -transform.right * speed;
+            rb.velocity = transform.right * speed;
         }
     }
 }

@@ -71,13 +71,22 @@ public class PlayerVR : MonoBehaviour
         UpdateController();
 
         // display for development purpose
-      /*  Debug.Log("L-touch velocity: " + touchVelocityL);
-        Debug.Log("R-touch velocity: " + touchVelocityR);*/
+        Debug.Log("L-touch velocity: " + touchVelocityL);
+        Debug.Log("R-touch velocity: " + touchVelocityR);
     }
 
 
     private void HandShakeControler()
     {
+        touchVelocityL
+            = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.LTouch);
+        touchVelocityR
+            = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch);
+        touchAccelerationL
+            = OVRInput.GetLocalControllerAcceleration(OVRInput.Controller.LTouch);
+        touchAccelerationR
+            = OVRInput.GetLocalControllerAcceleration(OVRInput.Controller.RTouch);
+
         if (!IsGrounded()) MoveScale = 0.0f;
         else MoveScale = 1.0f;
 
@@ -234,5 +243,4 @@ public class PlayerVR : MonoBehaviour
             MoveThrottle += (actualXZ - predictedXZ)
                 / (SimulationRate * Time.deltaTime);
     }
-
 }
