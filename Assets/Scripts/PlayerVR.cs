@@ -71,8 +71,8 @@ public class PlayerVR : MonoBehaviour
         UpdateController();
 
         // display for development purpose
-        Debug.Log("L-touch velocity: " + touchVelocityL);
-        Debug.Log("R-touch velocity: " + touchVelocityR);
+      /*  Debug.Log("L-touch velocity: " + touchVelocityL);
+        Debug.Log("R-touch velocity: " + touchVelocityR);*/
     }
 
 
@@ -140,10 +140,6 @@ public class PlayerVR : MonoBehaviour
                 tmpMoveThrottle *= 2.0f;
         }
 
-        bool isJump = DetectHandShakeJump();
-        if (isJump)
-            tmpMoveThrottle += new Vector3(0.0f, JumpForce, 0.0f);
-
         return tmpMoveThrottle;
     }
 
@@ -170,17 +166,6 @@ public class PlayerVR : MonoBehaviour
         if (speed > RUN_THRESHOLD) return true;
         return false;
     }
-
-
-    private bool DetectHandShakeJump()
-    {
-        if (!IsGrounded())
-            return false;
-        if (touchVelocityL.y > JUMP_THRESHOLD && touchVelocityR.y > JUMP_THRESHOLD)
-            return true;
-        return false;
-    }
-
 
     private bool IsGrounded()
     {
