@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerVR : MonoBehaviour
 {
+    public float hp;
+
     [SerializeField] private GameObject OVRPlayerControllerGameObject = null;
     [SerializeField] private Transform LeftHandAnchorTransform = null;
     [SerializeField] private Transform RightHandAnchorTransform = null;
@@ -20,7 +22,6 @@ public class PlayerVR : MonoBehaviour
     private float Acceleration;
     private float Damping;
     private float GravityModifier;
-    private float JumpForce;
 
     // original fields for this script
     private Vector3 touchVelocityL;
@@ -46,11 +47,12 @@ public class PlayerVR : MonoBehaviour
 
     private void Start()
     {
+        hp = 100;
+
         // store public fields of OVRPlayerController-class to local private fileds
         Acceleration = OVRPlayerControllerComponent.Acceleration;
         Damping = OVRPlayerControllerComponent.Damping;
         GravityModifier = OVRPlayerControllerComponent.GravityModifier;
-        JumpForce = OVRPlayerControllerComponent.JumpForce;
 
         // pre-setting for overriding character-control
         OVRPlayerControllerComponent.PreCharacterMove
@@ -82,10 +84,6 @@ public class PlayerVR : MonoBehaviour
             = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.LTouch);
         touchVelocityR
             = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch);
-        touchAccelerationL
-            = OVRInput.GetLocalControllerAcceleration(OVRInput.Controller.LTouch);
-        touchAccelerationR
-            = OVRInput.GetLocalControllerAcceleration(OVRInput.Controller.RTouch);
 
         if (!IsGrounded()) MoveScale = 0.0f;
         else MoveScale = 1.0f;
