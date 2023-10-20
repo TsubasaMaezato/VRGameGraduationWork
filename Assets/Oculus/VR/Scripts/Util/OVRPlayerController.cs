@@ -158,7 +158,6 @@ public class OVRPlayerController : MonoBehaviour
     public float InitialYRotation { get; private set; }
     private float MoveScaleMultiplier = 1.0f;
     private float RotationScaleMultiplier = 1.0f;
-
     // It is rare to want to use mouse movement in VR, so ignore the mouse by default.
     private bool SkipMouseRotation = true;
 
@@ -173,12 +172,15 @@ public class OVRPlayerController : MonoBehaviour
 
     private bool playerControllerEnabled = false;
 
+    public float HighPos;
     void Start()
     {
         // Add eye-depth as a camera offset from the player controller
         var p = CameraRig.transform.localPosition;
         p.z = OVRManager.profile.eyeDepth;
         CameraRig.transform.localPosition = p;
+
+        HighPos = 0.0f;
     }
 
     void Awake()
@@ -240,6 +242,13 @@ public class OVRPlayerController : MonoBehaviour
                 return;
         }
 
+        if (OVRInput.Get(OVRInput.Button.One, OVRInput.Controller.LTouch))
+            HighPos -= 0.1f * BackAndSideDampen * Time.deltaTime;
+        if (OVRInput.Get(OVRInput.Button.Two, OVRInput.Controller.LTouch))
+            HighPos += 0.1f * BackAndSideDampen * Time.deltaTime; ;
+        if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
+            HighPos = 0.0f;
+
         //todo: enable for Unity Input System
 #if ENABLE_LEGACY_INPUT_MANAGER
 
@@ -270,11 +279,11 @@ public class OVRPlayerController : MonoBehaviour
             var p = CameraRig.transform.localPosition;
             if (OVRManager.instance.trackingOriginType == OVRManager.TrackingOrigin.EyeLevel)
             {
-                p.y = OVRManager.profile.eyeHeight - (0.5f * Controller.height) + Controller.center.y;
+                p.y = OVRManager.profile.eyeHeight - (0.5f * Controller.height) + Controller.center.y + (HighPos * Controller.height);
             }
             else if (OVRManager.instance.trackingOriginType == OVRManager.TrackingOrigin.FloorLevel)
             {
-                p.y = -(0.5f * Controller.height) + Controller.center.y;
+                p.y = -(0.5f * Controller.height) + Controller.center.y + (HighPos * Controller.height);
             }
 
             CameraRig.transform.localPosition = p;
@@ -353,7 +362,7 @@ public class OVRPlayerController : MonoBehaviour
             bool moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
             bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
             bool moveBack = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
-
+          
             bool dpad_move = false;
 
             if (OVRInput.Get(OVRInput.Button.DpadUp))
@@ -468,7 +477,7 @@ public class OVRPlayerController : MonoBehaviour
                     if (ReadyToSnapTurn)
                     {
                         euler.y -= RotationRatchet;
-                        ReadyToSnapTurn = false;
+                       // ReadyToSnapTurn = false;
                     }
                 }
                 else if (OVRInput.Get(OVRInput.Button.SecondaryThumbstickRight) ||
@@ -477,7 +486,7 @@ public class OVRPlayerController : MonoBehaviour
                     if (ReadyToSnapTurn)
                     {
                         euler.y += RotationRatchet;
-                        ReadyToSnapTurn = false;
+                       // ReadyToSnapTurn = false;
                     }
                 }
                 else

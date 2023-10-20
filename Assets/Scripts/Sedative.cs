@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cross : MonoBehaviour
+public class Sedative : MonoBehaviour
 {
     void Start()
     {
-        
+    
     }
     void Update()
     {
         
     }
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Ghost"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
+            PlayerVR.hp += 30;
             Destroy(gameObject);
+
+            Debug.Log(PlayerVR.hp);
         }
     }
 }

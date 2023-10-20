@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerVR : MonoBehaviour
 {
-    public float hp;
+    public static float hp;
 
     [SerializeField] private GameObject OVRPlayerControllerGameObject = null;
     [SerializeField] private Transform LeftHandAnchorTransform = null;
@@ -64,7 +65,17 @@ public class PlayerVR : MonoBehaviour
     }
 
 
-    private void Update() { }
+    private void Update()
+    {
+        if(hp >= 100)
+        {
+            hp = 100;
+        }
+        if(hp <= 0)
+        {
+            SceneManager.LoadScene("ResultScene");
+        }
+    }
 
 
     private void CharacterMoveByHandShake()

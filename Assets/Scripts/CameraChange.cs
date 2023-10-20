@@ -112,7 +112,7 @@ public class CameraChange : MonoBehaviour
     }
     public void CloseRoom4()
     {
-        Instantiate(hideObj[objNum], new Vector3(-127.8f, 3, 9.2f), Quaternion.identity);
+        Instantiate(hideObj[objNum], new Vector3(-73.7f, 3, 9.2f), Quaternion.identity);
         hidePos.SetActive(false);
         gate.SetActive(false);
     }
