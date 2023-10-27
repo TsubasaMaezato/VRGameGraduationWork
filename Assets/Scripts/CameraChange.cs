@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CameraChange : MonoBehaviour
 {
     public GameObject[] hideObj;
+    public GameObject[] hideObjPos;
 
     public GameObject gate;
 
@@ -16,9 +17,8 @@ public class CameraChange : MonoBehaviour
     int objNum;
 
     int cameraChangeCount;
-    public RawImage rawImage;
 
-    public RenderTexture[] rt;
+
     void Start()
     {
         tutorial.SetActive(true);
@@ -28,34 +28,7 @@ public class CameraChange : MonoBehaviour
     }
     void Update()
     {
-        switch (cameraChangeCount)
-        {
-            case 0: rawImage.texture = rt[0]; break;
-            case 1: rawImage.texture = rt[1]; break;
-            case 2: rawImage.texture = rt[2]; break;
-            case 3: rawImage.texture = rt[3]; break;
-            case 4: rawImage.texture = rt[4]; break;
-            case 5: rawImage.texture = rt[5]; break;
-            case 6: rawImage.texture = rt[6]; break;
-            case 7: rawImage.texture = rt[7]; break;
-            case 8: rawImage.texture = rt[8]; break;
-        }
-    }
-    public void CameraChangeRight()
-    {
-        cameraChangeCount--;
-        if(cameraChangeCount < 0)
-        {
-            cameraChangeCount = 8;
-        }
-    }
-    public void CameraChangeLeft()
-    {
-        cameraChangeCount++;
-        if(cameraChangeCount > 8)
-        {
-            cameraChangeCount = 0;
-        }
+
     }
     public void CloseTutorial()
     {
@@ -94,37 +67,37 @@ public class CameraChange : MonoBehaviour
     }
     public void CloseRoom1()
     {
-        Instantiate(hideObj[objNum], new Vector3(-127.8f, 3, 9.2f), Quaternion.identity);
+        Instantiate(hideObj[objNum], hideObjPos[0].transform.position, Quaternion.identity);
         hidePos.SetActive(false);
         gate.SetActive(false);
     }
     public void CloseRoom2()
     {
-        Instantiate(hideObj[objNum], new Vector3(-139.9f, 3, -5.7f), Quaternion.identity);
+        Instantiate(hideObj[objNum], hideObjPos[1].transform.position, Quaternion.identity);
         hidePos.SetActive(false);
         gate.SetActive(false);
     }
     public void CloseRoom3()
     {
-        Instantiate(hideObj[objNum], new Vector3(-115.9f, 3, 5.7f), Quaternion.identity);
+        Instantiate(hideObj[objNum], hideObjPos[2].transform.position, Quaternion.identity);
         hidePos.SetActive(false);
         gate.SetActive(false);
     }
     public void CloseRoom4()
     {
-        Instantiate(hideObj[objNum], new Vector3(-73.7f, 3, 9.2f), Quaternion.identity);
+        Instantiate(hideObj[objNum], hideObjPos[3].transform.position, Quaternion.identity);
         hidePos.SetActive(false);
         gate.SetActive(false);
     }
     public void CloseRoom5()
     {
-        Instantiate(hideObj[objNum], new Vector3(-84.4f, 3, -5.7f), Quaternion.identity);
+        Instantiate(hideObj[objNum], hideObjPos[4].transform.position, Quaternion.identity);
         hidePos.SetActive(false);
         gate.SetActive(false);
     }
     public void CloseRoom6()
     {
-        Instantiate(hideObj[objNum], new Vector3(-61.76f, 3, -5.7f), Quaternion.identity);
+        Instantiate(hideObj[objNum], hideObjPos[5].transform.position, Quaternion.identity);
         hidePos.SetActive(false);
         gate.SetActive(false);
     }

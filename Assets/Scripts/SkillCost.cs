@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillCost : MonoBehaviour
 {
@@ -15,11 +16,16 @@ public class SkillCost : MonoBehaviour
 
     AudioSource sound;
     public AudioClip[] se;
+
+    public RenderTexture[] rt;
+    public RawImage rawImage;
     void Start()
     {
         cost = 3;
 
         eyeHide.SetActive(false);
+
+        rawImage.texture = rt[0];
 
         sound = GetComponent<AudioSource>();
     }
@@ -50,15 +56,6 @@ public class SkillCost : MonoBehaviour
             eyeHide.SetActive(true);
         }
     }
-    public void RoadDefenseRight()
-    {
-        mapSkillRoadDifenseRight = true;
-    }
-    public void RoadDefenseLeft()
-    {
-        mapSkillRoadDifenseLeft = true;
-
-    }
     public void RoadDefense()
     {
         if (cost >= 1 && mapSkillRoadDifenseRight)
@@ -66,7 +63,7 @@ public class SkillCost : MonoBehaviour
             cost -= 1;
             GameObject G = Instantiate(ghost, new Vector3(-74, 3.3f, -15), Quaternion.identity);
             G.transform.Rotate(0, 90, 0);
-            
+
         }
         if (cost >= 1 && mapSkillRoadDifenseLeft)
         {
@@ -77,5 +74,45 @@ public class SkillCost : MonoBehaviour
 
         mapSkillRoadDifenseRight = false;
         mapSkillRoadDifenseLeft = false;
+    }
+
+    public void MainHall()
+    {
+        rawImage.texture = rt[0];
+    }
+    public void RoadDefenseRight()
+    {
+        rawImage.texture = rt[1];
+        mapSkillRoadDifenseRight = true;
+    }
+    public void RoadDefenseLeft()
+    {
+        rawImage.texture = rt[2];
+        mapSkillRoadDifenseLeft = true;
+    }
+
+    public void Room1()
+    {
+        rawImage.texture = rt[3];
+    }
+    public void Room2()
+    {
+        rawImage.texture = rt[4];
+    }
+    public void Room3()
+    {
+        rawImage.texture = rt[5];
+    }
+    public void Room4()
+    {
+        rawImage.texture = rt[6];
+    }
+    public void Room5()
+    {
+        rawImage.texture = rt[7];
+    }
+    public void Room6()
+    {
+        rawImage.texture = rt[8];
     }
 }
