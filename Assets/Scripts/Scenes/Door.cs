@@ -21,10 +21,10 @@ public class Door :OVRGrabbable
 
     private void Update()
     {
-        if (Vector3.Distance(handler.position, transform.position) > 0.4f)
+      /*  if (Vector3.Distance(handler.position, transform.position) > 0.4f)
         {
             grabbedBy.ForceRelease(this);
         }
-           
+      */     
     }
 }
