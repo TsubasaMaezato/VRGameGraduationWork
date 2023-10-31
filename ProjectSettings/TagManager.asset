@@ -10,13 +10,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Object
   - Water
   - UI
   - Hand
   - EyeHiede
-  - 
-  - 
+  - GrabblHand
+  - Blook
   - 
   - 
   - 
