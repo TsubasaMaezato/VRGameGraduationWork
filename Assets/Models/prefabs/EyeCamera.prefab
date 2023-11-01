@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5708760739948012535}
   - component: {fileID: 3904338387662066290}
-  - component: {fileID: 7662870348882787224}
+  - component: {fileID: 5806537851465217318}
   m_Layer: 0
   m_Name: eyelids
   m_TagString: Untagged
@@ -241,8 +241,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5398444754826004082}
   m_Mesh: {fileID: 338742848904627238, guid: 3e65c4754e4afd24285c990abdb86f7a, type: 3}
---- !u!23 &7662870348882787224
-MeshRenderer:
+--- !u!137 &5806537851465217318
+SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -256,7 +256,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
+  m_RayTracingMode: 3
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
@@ -282,4 +282,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 1
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 338742848904627238, guid: c5336253781e84049a6f9ae2c7e11aff, type: 3}
+  m_Bones: []
+  m_BlendShapeWeights:
+  - 100
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0, y: 0.000000029802322, z: 0.1272107}
+    m_Extent: {x: 0.6923142, y: 0.68404186, z: 0.12873304}
+  m_DirtyAABB: 0
