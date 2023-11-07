@@ -15,6 +15,7 @@ public class SkillCost : MonoBehaviour
     public GameObject eyeHide;
     public GameObject ghost;
     public GameObject[] eyeCameraObj;
+    public GameObject[] lockDoorObj;
 
     bool mapSkillRoadDifenseRight;
     bool mapSkillRoadDifenseLeft;
@@ -24,6 +25,27 @@ public class SkillCost : MonoBehaviour
 
     public RenderTexture[] rt;
     public RawImage rawImage;
+    private void Awake()
+    {
+        Anim[0] = eyeCameraObj[0].GetComponent<Animator>();
+        Anim[1] = eyeCameraObj[1].GetComponent<Animator>();
+        Anim[2] = eyeCameraObj[2].GetComponent<Animator>();
+        Anim[3] = eyeCameraObj[3].GetComponent<Animator>();
+        Anim[4] = eyeCameraObj[4].GetComponent<Animator>();
+        Anim[5] = eyeCameraObj[5].GetComponent<Animator>();
+        Anim[6] = eyeCameraObj[6].GetComponent<Animator>();
+        Anim[7] = eyeCameraObj[7].GetComponent<Animator>();
+        Anim[8] = eyeCameraObj[8].GetComponent<Animator>();
+
+        lockDoorObj[0].SetActive(false);
+        lockDoorObj[1].SetActive(false);
+        lockDoorObj[2].SetActive(false);
+        lockDoorObj[3].SetActive(false);
+        lockDoorObj[4].SetActive(false);
+        lockDoorObj[5].SetActive(false);
+        lockDoorObj[6].SetActive(false);
+        lockDoorObj[7].SetActive(false);
+    }
     void Start()
     {
         cost = 3;
@@ -36,16 +58,8 @@ public class SkillCost : MonoBehaviour
         Anim[cameraAnimNum].SetBool("OpenBool", true);
 
         sound = GetComponent<AudioSource>();
-        Anim[0] = eyeCameraObj[0].GetComponent<Animator>();
-        Anim[1] = eyeCameraObj[1].GetComponent<Animator>();
-        Anim[2] = eyeCameraObj[2].GetComponent<Animator>();
-        Anim[3] = eyeCameraObj[3].GetComponent<Animator>();
-        Anim[4] = eyeCameraObj[4].GetComponent<Animator>();
-        Anim[5] = eyeCameraObj[5].GetComponent<Animator>();
-        Anim[6] = eyeCameraObj[6].GetComponent<Animator>();
-        Anim[7] = eyeCameraObj[7].GetComponent<Animator>();
-        Anim[8] = eyeCameraObj[8].GetComponent<Animator>();
     }
+
     void Update()
     {
         costTimer += Time.deltaTime;
@@ -73,6 +87,49 @@ public class SkillCost : MonoBehaviour
             cost -= 1;
             PlayerVR.hp -= 5;
             eyeHide.SetActive(true);
+        }
+    }
+    public void LockDoor()
+    {
+        if(cost >= 1 && cameraAnimNum == 0)
+        {
+            cost -= 1;
+            lockDoorObj[0].SetActive(true);
+        }
+        if (cost >= 1 && cameraAnimNum == 1)
+        {
+            cost -= 1;
+            lockDoorObj[1].SetActive(true);
+        }
+        if (cost >= 1 && cameraAnimNum == 2)
+        {
+            cost -= 1;
+            lockDoorObj[2].SetActive(true);
+        }
+        if (cost >= 1 && cameraAnimNum == 3)
+        {
+            cost -= 1;
+            lockDoorObj[3].SetActive(true);
+        }
+        if (cost >= 1 && cameraAnimNum == 4)
+        {
+            cost -= 1;
+            lockDoorObj[4].SetActive(true);
+        }
+        if (cost >= 1 && cameraAnimNum == 5)
+        {
+            cost -= 1;
+            lockDoorObj[5].SetActive(true);
+        }
+        if (cost >= 1 && mapSkillRoadDifenseRight)
+        {
+            cost -= 1;
+            lockDoorObj[6].SetActive(true);
+        }
+        if (cost >= 1 && mapSkillRoadDifenseLeft)
+        {
+            cost -= 1;
+            lockDoorObj[7].SetActive(true);
         }
     }
     public void RoadDefense()
