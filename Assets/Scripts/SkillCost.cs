@@ -91,32 +91,32 @@ public class SkillCost : MonoBehaviour
     }
     public void LockDoor()
     {
-        if(cost >= 1 && cameraAnimNum == 0)
+        if(cost >= 1 && cameraAnimNum == 3)
         {
             cost -= 1;
             lockDoorObj[0].SetActive(true);
         }
-        if (cost >= 1 && cameraAnimNum == 1)
+        if (cost >= 1 && cameraAnimNum == 4)
         {
             cost -= 1;
             lockDoorObj[1].SetActive(true);
         }
-        if (cost >= 1 && cameraAnimNum == 2)
+        if (cost >= 1 && cameraAnimNum == 5)
         {
             cost -= 1;
             lockDoorObj[2].SetActive(true);
         }
-        if (cost >= 1 && cameraAnimNum == 3)
+        if (cost >= 1 && cameraAnimNum == 6)
         {
             cost -= 1;
             lockDoorObj[3].SetActive(true);
         }
-        if (cost >= 1 && cameraAnimNum == 4)
+        if (cost >= 1 && cameraAnimNum == 7)
         {
             cost -= 1;
             lockDoorObj[4].SetActive(true);
         }
-        if (cost >= 1 && cameraAnimNum == 5)
+        if (cost >= 1 && cameraAnimNum == 8)
         {
             cost -= 1;
             lockDoorObj[5].SetActive(true);

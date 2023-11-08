@@ -14,7 +14,7 @@ public class LockDoorOBJ : MonoBehaviour
     }
     private void OnEnable()
     {
-        Invoke("DestroyLock",5);
+        Invoke("DestroyLock",10);
     }
     void DestroyLock()
     {
