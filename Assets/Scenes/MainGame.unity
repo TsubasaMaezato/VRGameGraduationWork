@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 3
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 81424132}
   - component: {fileID: 81424133}
   - component: {fileID: 81424134}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DoorColRoom6
   m_TagString: LockDoorOn
   m_Icon: {fileID: 0}
@@ -1487,7 +1487,7 @@ GameObject:
   - component: {fileID: 176474219}
   - component: {fileID: 176474220}
   - component: {fileID: 176474221}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DoorColLeftCorrider
   m_TagString: LockDoorOn
   m_Icon: {fileID: 0}
@@ -1900,6 +1900,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210785514}
   m_CullTransparentMesh: 1
+--- !u!1 &211502016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211502017}
+  m_Layer: 0
+  m_Name: Ghost3Pos2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &211502017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211502016}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -41.77, y: 0, z: 11.709999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1004225881}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &222603567
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,6 +2992,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390627969}
   m_CullTransparentMesh: 1
+--- !u!1 &400690221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3510657144048494686, guid: a45ba40207508f548acc886b4bf541f3, type: 3}
+  m_PrefabInstance: {fileID: 1693322541834586157}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &408229942
 GameObject:
   m_ObjectHideFlags: 0
@@ -4397,6 +4433,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fea710a34b7e9c43962383e3de4fec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghost2:
+  - {fileID: 3721567387360424410, guid: 32e07445e5f944d4a80d939807ad621e, type: 3}
+  - {fileID: 3721567387360424410, guid: 076ba5f662b4d2c499dfd30f488cf8b1, type: 3}
+  ghost2Pos:
+  - {fileID: 860841180}
+  - {fileID: 211502016}
+  - {fileID: 2016041600}
+  - {fileID: 819741862}
+  - {fileID: 1186854645}
+  - {fileID: 2033677347}
+  lmc: {fileID: 662768040}
   Anim:
   - {fileID: 494640626}
   - {fileID: 1930206959}
@@ -4409,7 +4456,7 @@ MonoBehaviour:
   - {fileID: 1409614737}
   cost: 0
   eyeHide: {fileID: 739756121}
-  ghost: {fileID: 4013031005703915320, guid: 93573a307de6e9140af6b391bc102bb2, type: 3}
+  ghost: {fileID: 3721567387360424410, guid: 55b0e4a7735d02149a310d1c41bd3544, type: 3}
   eyeCameraObj:
   - {fileID: 494640622}
   - {fileID: 1930206955}
@@ -5900,6 +5947,37 @@ Transform:
   m_Father: {fileID: 194185061}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &819741862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 819741863}
+  m_Layer: 0
+  m_Name: Ghost3Pos4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &819741863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819741862}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.960001, y: 0, z: 29.32}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1004225881}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &830033612
 GameObject:
   m_ObjectHideFlags: 0
@@ -6042,6 +6120,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.33714843, y: 0.22775674, z: 0.39429855}
   m_Center: {x: -0.0008610487, y: 0.38612163, z: 0.07448006}
+--- !u!1 &860841180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 860841181}
+  m_Layer: 0
+  m_Name: Ghost3Pos1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &860841181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860841180}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -27.21, y: 0, z: 29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1004225881}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &874402352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6203,7 +6312,7 @@ GameObject:
   - component: {fileID: 910715181}
   - component: {fileID: 910715182}
   - component: {fileID: 910715183}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DoorColRoom4
   m_TagString: LockDoorOn
   m_Icon: {fileID: 0}
@@ -6615,6 +6724,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997743612}
   m_CullTransparentMesh: 1
+--- !u!1 &1004225880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1004225881}
+  m_Layer: 0
+  m_Name: GhostPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1004225881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004225880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 860841181}
+  - {fileID: 211502017}
+  - {fileID: 2016041601}
+  - {fileID: 819741863}
+  - {fileID: 1186854646}
+  - {fileID: 2033677348}
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1006501277
 GameObject:
   m_ObjectHideFlags: 0
@@ -6626,7 +6772,7 @@ GameObject:
   - component: {fileID: 1006501278}
   - component: {fileID: 1006501279}
   - component: {fileID: 1006501280}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DoorColRightCorrider
   m_TagString: LockDoorOn
   m_Icon: {fileID: 0}
@@ -7179,6 +7325,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179635149}
   m_CullTransparentMesh: 1
+--- !u!1 &1186854645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1186854646}
+  m_Layer: 0
+  m_Name: Ghost3Pos5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1186854646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186854645}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.16, y: 0, z: 10.98}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1004225881}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1192859145 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8915301168737536181, guid: ddabf92f80de4ad4aa358f4cb0898586, type: 3}
@@ -7964,7 +8141,7 @@ Rigidbody:
   m_Drag: 10
   m_AngularDrag: 10
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -9302,7 +9479,7 @@ GameObject:
   - component: {fileID: 1581370803}
   - component: {fileID: 1581370804}
   - component: {fileID: 1581370805}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DoorColRoom2
   m_TagString: LockDoorOn
   m_Icon: {fileID: 0}
@@ -10292,7 +10469,7 @@ GameObject:
   - component: {fileID: 1715414344}
   - component: {fileID: 1715414345}
   - component: {fileID: 1715414346}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DoorColRoom1
   m_TagString: LockDoorOn
   m_Icon: {fileID: 0}
@@ -11227,7 +11404,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1889271915}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 662768038}
+        m_TargetAssemblyTypeName: SkillCost, Assembly-CSharp
+        m_MethodName: Ghost2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1889271915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12293,6 +12482,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008695918}
   m_CullTransparentMesh: 1
+--- !u!1 &2016041600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2016041601}
+  m_Layer: 0
+  m_Name: Ghost3Pos3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2016041601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016041600}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.7300005, y: 0, z: 11.709999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1004225881}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2021791447
 GameObject:
   m_ObjectHideFlags: 0
@@ -12477,6 +12697,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5172937483630938484, guid: ddabf92f80de4ad4aa358f4cb0898586, type: 3}
   m_PrefabInstance: {fileID: 5172937483357305459}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2033677347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2033677348}
+  m_Layer: 0
+  m_Name: Ghost3Pos6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2033677348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033677347}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 42.440002, y: 0, z: 10.67}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1004225881}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2034180621
 GameObject:
   m_ObjectHideFlags: 0
@@ -12526,7 +12777,7 @@ MonoBehaviour:
   modelHeadPos: {fileID: 710024798}
   x_offset: 0
   y_offset: 0
-  z_offset: 0.35
+  z_offset: 0.4
 --- !u!1 &2039432204
 GameObject:
   m_ObjectHideFlags: 0
@@ -12538,7 +12789,7 @@ GameObject:
   - component: {fileID: 2039432205}
   - component: {fileID: 2039432206}
   - component: {fileID: 2039432207}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DoorColRoom5
   m_TagString: LockDoorOn
   m_Icon: {fileID: 0}
@@ -13190,6 +13441,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2504735961474249246, guid: a45ba40207508f548acc886b4bf541f3, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3510657144048494682, guid: a45ba40207508f548acc886b4bf541f3, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -13238,7 +13493,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorKey
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3908724399303940525, guid: a45ba40207508f548acc886b4bf541f3, type: 3}
+      propertyPath: key
+      value: 
+      objectReference: {fileID: 400690221}
+    m_RemovedComponents:
+    - {fileID: 9167095814383527939, guid: a45ba40207508f548acc886b4bf541f3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a45ba40207508f548acc886b4bf541f3, type: 3}
 --- !u!1001 &5172937483357305459
 PrefabInstance:

@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 public class SkillCost : MonoBehaviour
 {
+    public GameObject[] ghost2;
+    public GameObject[] ghost2Pos;
+
+    public LightMapChange lmc;
     public Animator[] Anim;
 
     int animCount;
@@ -89,6 +94,15 @@ public class SkillCost : MonoBehaviour
             eyeHide.SetActive(true);
         }
     }
+    public void PowerOutage()
+    {
+        if (cost >= 1)
+        {
+            cost -= 1;
+            PlayerVR.hp -= 5;
+            lmc.SwapLightmapData();
+        }
+    }
     public void LockDoor()
     {
         if(cost >= 1 && cameraAnimNum == 3)
@@ -137,19 +151,70 @@ public class SkillCost : MonoBehaviour
         if (cost >= 1 && mapSkillRoadDifenseRight)
         {
             cost -= 1;
-            GameObject G = Instantiate(ghost, new Vector3(-74, 3.3f, -15), Quaternion.identity);
-            G.transform.Rotate(0, 90, 0);
+            GameObject G = Instantiate(ghost,new Vector3(27,0,-3), Quaternion.identity);
+            G.transform.Rotate(0, 180, 0);
 
         }
         if (cost >= 1 && mapSkillRoadDifenseLeft)
         {
             cost -= 1;
-            GameObject G = Instantiate(ghost, new Vector3(-127.6f, 3.3f, -15), Quaternion.identity);
-            G.transform.Rotate(0, 90, 0);
+            GameObject G = Instantiate(ghost, new Vector3(-27, 0, -3), Quaternion.identity);
+            G.transform.Rotate(0, 180, 0);
         }
 
         mapSkillRoadDifenseRight = false;
         mapSkillRoadDifenseLeft = false;
+    }
+    public void Ghost2()
+    {
+        if (cost >= 1 && mapSkillRoadDifenseRight)
+        {
+            cost -= 1;
+            GameObject G2 = Instantiate(ghost2[0], new Vector3(27, 0, 17), Quaternion.identity);
+            G2.transform.Rotate(0, 180, 0);
+        }
+        if (cost >= 1 && mapSkillRoadDifenseLeft)
+        {
+            cost -= 1;
+            GameObject G2 = Instantiate(ghost2[0], new Vector3(-27, 0, 17), Quaternion.identity);
+            G2.transform.Rotate(0, 180, 0);
+        }
+        if (cost >= 1 && cameraAnimNum == 3)
+        {
+            cost -= 1;
+            GameObject G2 = Instantiate(ghost2[1], ghost2Pos[0].transform.position, Quaternion.identity);
+            G2.transform.Rotate(0, 180, 0);
+        }
+        if (cost >= 1 && cameraAnimNum == 4)
+        {
+            cost -= 1;
+            GameObject G2 = Instantiate(ghost2[1], ghost2Pos[1].transform.position, Quaternion.identity);
+            G2.transform.Rotate(0, 90, 0);
+        }
+        if (cost >= 1 && cameraAnimNum == 5)
+        {
+            cost -= 1;
+            GameObject G2 = Instantiate(ghost2[1], ghost2Pos[2].transform.position, Quaternion.identity);
+            G2.transform.Rotate(0, -90, 0);
+        }
+        if (cost >= 1 && cameraAnimNum == 6)
+        {
+            cost -= 1;
+            GameObject G2 = Instantiate(ghost2[1], ghost2Pos[3].transform.position, Quaternion.identity);
+            G2.transform.Rotate(0, 180, 0);
+        }
+        if (cost >= 1 && cameraAnimNum == 7)
+        {
+            cost -= 1;
+            GameObject G2 = Instantiate(ghost2[1], ghost2Pos[4].transform.position, Quaternion.identity);
+            G2.transform.Rotate(0, 90, 0);
+        }
+        if (cost >= 1 && cameraAnimNum == 8)
+        {
+            cost -= 1;
+            GameObject G2 = Instantiate(ghost2[1],ghost2Pos[5].transform.position, Quaternion.identity);
+            G2.transform.Rotate(0, -90, 0);
+        }
     }
 
     public void MainHall()

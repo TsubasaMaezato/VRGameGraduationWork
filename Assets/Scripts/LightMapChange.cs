@@ -48,30 +48,36 @@ public class LightMapChange : MonoBehaviour
     // ライトマップデータの切替処理
     public void SwapLightmapData()
     {
-        DarkLightmap();
-
-        Invoke("BrightLightmap", 5);
+        if (!swapLight)
+        {
+            DarkLightmap();
+            Invoke("BrightLightmap", 10);
+        }
     }
 
     // 暗い照明のライトマップデータを現在のシーンに適用する処理
     void DarkLightmap()
     {
+        RenderSettings.ambientIntensity = 0.5f;
         // 暗い照明のライトマップファイルを現在のライトマップ設定に適用
         LightmapSettings.lightmaps = darkDatas;
         // 暗い照明のライトプローブファイルを現在のライトマップ設定に適用
         LightmapSettings.lightProbes = lightProbe[1];
         // 暗い照明のリフレクションプローブファイルを現在のリフレクションプローブに適用
         probeComponent.customBakedTexture = reflectionProbe[1];
+        swapLight = true;
     }
 
     // 明るい照明のライトマップ設定を現在のシーンに適用する処理
     void BrightLightmap()
     {
+        RenderSettings.ambientIntensity = 1;
         // 明るい照明のライトマップファイルを現在のライトマップ設定に適用
         LightmapSettings.lightmaps = brightDatas;
         // 明るい照明のライトプローブファイルを現在のライトマップ設定に適用
         LightmapSettings.lightProbes = lightProbe[0];
         // 明るい照明のリフレクションプローブファイルを現在のリフレクションプローブに適用
         probeComponent.customBakedTexture = reflectionProbe[0];
+        swapLight = false;
     }
 }

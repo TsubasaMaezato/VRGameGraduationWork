@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DoorKey : MonoBehaviour
 {
+    public GameObject key;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,12 +16,12 @@ public class DoorKey : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("LockDoorOn"))
         {
             other.gameObject.SetActive(false);
-            Destroy(gameObject);
+            Destroy(key);
         }
     }
 }
