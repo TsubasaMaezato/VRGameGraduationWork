@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6088666000812685755}
   - component: {fileID: 1871247631531230786}
+  - component: {fileID: 5596051252557935366}
   m_Layer: 0
   m_Name: Book_lightBlue
   m_TagString: Untagged
@@ -86,3 +87,16 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0, z: -0.20643817}
     m_Extent: {x: 0.4166206, y: 0.27924678, z: 0.23689313}
   m_DirtyAABB: 0
+--- !u!65 &5596051252557935366
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6860277300093543169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8332414, y: 0.55849355, z: 0.47378638}
+  m_Center: {x: 0, y: 0, z: -0.20643821}
