@@ -15,10 +15,46 @@ public class Incinerator : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Fetish"))
+        if (other.gameObject.name == "FamillyPicture")
         {
-            Destroy(other.gameObject);
-            SceneManager.LoadScene("ResultScene");
+            if (CameraChange.objNum == 0)
+            {
+                Destroy(other.gameObject);
+                SceneManager.LoadScene("ResultScene");
+            }
         }
+        if (other.gameObject.name == "Painting")
+        {
+            if (CameraChange.objNum == 1)
+            {
+                Destroy(other.gameObject);
+                SceneManager.LoadScene("ResultScene");
+            }
+        }
+        if (other.gameObject.name == "Doll")
+        {
+            if (CameraChange.objNum == 2)
+            {
+                Destroy(other.gameObject);
+                SceneManager.LoadScene("ResultScene");
+            }
+        }
+        if (other.gameObject.name == "Pot")
+        {
+            if (CameraChange.objNum == 3)
+            {
+                Destroy(other.gameObject);
+                SceneManager.LoadScene("ResultScene");
+            }
+        }
+        if (other.gameObject.name == "Mask")
+        {
+            if (CameraChange.objNum == 4)
+            {
+                Destroy(other.gameObject);
+                SceneManager.LoadScene("ResultScene");
+            }
+        }
+
     }
 }

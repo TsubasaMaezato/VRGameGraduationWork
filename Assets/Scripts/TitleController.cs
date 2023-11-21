@@ -9,6 +9,7 @@ public class TitleController : MonoBehaviour
     private void Awake()
     {
         SceneManager.LoadScene("MainGame", LoadSceneMode.Additive);
+
     }
     void Start()
     {

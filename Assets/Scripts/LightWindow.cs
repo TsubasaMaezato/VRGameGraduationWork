@@ -7,7 +7,7 @@ using System.IO;
 
 public class LightWindow : MonoBehaviour
 {
-    // エディタのメニューに項目を追加
+  /*  // エディタのメニューに項目を追加
     [MenuItem("Export/Export LightProbe")]
 
     // ライトプローブファイルの出力処理
@@ -22,5 +22,5 @@ public class LightWindow : MonoBehaviour
         // ライトマップ設定のライトプローブファイルのアセットを作成して変数 path の場所に出力
         AssetDatabase.CreateAsset(GameObject.Instantiate
             (LightmapSettings.lightProbes), path + "/Lightprobe.asset");
-    }
+    }*/
 }

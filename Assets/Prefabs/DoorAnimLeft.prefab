@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 2221068800724329363}
   - component: {fileID: 6912013288570895756}
   - component: {fileID: 8699376714069948146}
+  - component: {fileID: 8157410444332950332}
   m_Layer: 0
   m_Name: pCube21
   m_TagString: Untagged
@@ -273,6 +274,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &8157410444332950332
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298024913980741207}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8348813, y: 3.203359, z: 0.23813629}
+  m_Center: {x: -0.9, y: 0, z: 0}
 --- !u!1 &8393316445412115244
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +297,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9165067662446533014}
   - component: {fileID: 8699376713529881123}
-  - component: {fileID: 6179677142913230010}
   m_Layer: 0
   m_Name: DoorAnimLeft
   m_TagString: Untagged
@@ -328,16 +341,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &6179677142913230010
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8393316445412115244}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.8348813, y: 3.203359, z: 0.23813629}
-  m_Center: {x: -0.03536582, y: 0.007953525, z: 0.012817383}
