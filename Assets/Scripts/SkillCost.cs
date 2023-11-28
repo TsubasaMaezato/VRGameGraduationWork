@@ -8,6 +8,7 @@ public class SkillCost : MonoBehaviour
 {
     public Slider skillCoolDownSlider;
 
+    public CameraOn cameraon;
     public GameObject[] skillButton;
     public GameObject[] costObj;
 
@@ -19,7 +20,7 @@ public class SkillCost : MonoBehaviour
 
     float cameraCoolDown;
     int costCount;
-    int cameraAnimNum;
+    public static int cameraAnimNum;
     public int cost;
     float costTimer;
 
@@ -373,6 +374,7 @@ public class SkillCost : MonoBehaviour
         if (!cameraCoolDownBool && cameraAnimNum != 0 && amuletBool != 0)
         {
             cameraAnimNum = 0;
+            cameraon.CameraSet();
             rawImage.texture = rt[0];
             Anim[cameraAnimNum].SetBool("OpenBool", true);
             Anim[19].SetBool("CoolDownBool", true);
@@ -384,6 +386,7 @@ public class SkillCost : MonoBehaviour
         if (!cameraCoolDownBool && cameraAnimNum != 1 && amuletBool != 1)
         {
             cameraAnimNum = 1;
+            cameraon.CameraSet();
             rawImage.texture = rt[1];
             Anim[cameraAnimNum].SetBool("OpenBool", true);
             Anim[19].SetBool("CoolDownBool", true);
@@ -395,6 +398,7 @@ public class SkillCost : MonoBehaviour
         if (!cameraCoolDownBool && cameraAnimNum != 2 && amuletBool != 2)
         {
             cameraAnimNum = 2;
+            cameraon.CameraSet();
             rawImage.texture = rt[2];
             Anim[cameraAnimNum].SetBool("OpenBool", true);
             Anim[19].SetBool("CoolDownBool", true);
@@ -407,6 +411,7 @@ public class SkillCost : MonoBehaviour
         if (!cameraCoolDownBool && cameraAnimNum != 3 && amuletBool != 3)
         {
             cameraAnimNum = 3;
+            cameraon.CameraSet();
             rawImage.texture = rt[3];
             Anim[cameraAnimNum].SetBool("OpenBool", true);
             Anim[19].SetBool("CoolDownBool", true);
@@ -418,6 +423,7 @@ public class SkillCost : MonoBehaviour
         if (!cameraCoolDownBool && cameraAnimNum != 4 && amuletBool != 4)
         {
             cameraAnimNum = 4;
+            cameraon.CameraSet();
             rawImage.texture = rt[4];
             Anim[cameraAnimNum].SetBool("OpenBool", true);
             Anim[19].SetBool("CoolDownBool", true);
@@ -429,6 +435,7 @@ public class SkillCost : MonoBehaviour
         if (!cameraCoolDownBool && cameraAnimNum != 5 && amuletBool != 5)
         {
             cameraAnimNum = 5;
+            cameraon.CameraSet();
             rawImage.texture = rt[5];
             Anim[cameraAnimNum].SetBool("OpenBool", true);
             Anim[19].SetBool("CoolDownBool", true);
@@ -440,6 +447,7 @@ public class SkillCost : MonoBehaviour
         if (!cameraCoolDownBool && cameraAnimNum != 6 && amuletBool != 6)
         {
             cameraAnimNum = 6;
+            cameraon.CameraSet();
             rawImage.texture = rt[6];
             Anim[cameraAnimNum].SetBool("OpenBool", true);
             Anim[19].SetBool("CoolDownBool", true);
@@ -451,6 +459,7 @@ public class SkillCost : MonoBehaviour
         if (!cameraCoolDownBool && cameraAnimNum != 7 && amuletBool != 7)
         {
             cameraAnimNum = 7;
+            cameraon.CameraSet();
             rawImage.texture = rt[7];
             Anim[cameraAnimNum].SetBool("OpenBool", true);
             Anim[19].SetBool("CoolDownBool", true);
@@ -462,6 +471,7 @@ public class SkillCost : MonoBehaviour
         if (!cameraCoolDownBool && cameraAnimNum != 8 && amuletBool != 8)
         {
             cameraAnimNum = 8;
+            cameraon.CameraSet();
             rawImage.texture = rt[8];
             Anim[cameraAnimNum].SetBool("OpenBool", true);
             Anim[19].SetBool("CoolDownBool", true);

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CameraChange : MonoBehaviour
 {
+    public GameObject[] cameraObj;
+
     public GameObject[] hideObj;
     public GameObject[] hideObjPos;
 

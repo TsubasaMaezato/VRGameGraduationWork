@@ -12,8 +12,6 @@ public class Door :OVRGrabbable
         transform.position = handler.transform.position;
         transform.rotation = handler.transform.rotation;
 
-
-
         Rigidbody rbhandler = handler.GetComponent<Rigidbody>();    
         rbhandler.velocity = Vector3.zero;
         rbhandler.angularVelocity = Vector3.zero;
