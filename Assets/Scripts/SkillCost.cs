@@ -6,6 +6,10 @@ using UnityEngine.Rendering;
 
 public class SkillCost : MonoBehaviour
 {
+    public GameObject uiObj;
+    public GameObject uiObj2;
+    public GameObject[] roomCollider;
+
     public Slider skillCoolDownSlider;
 
     public CameraOn cameraon;
@@ -65,15 +69,6 @@ public class SkillCost : MonoBehaviour
         Anim[6] = eyeCameraObj[6].GetComponent<Animator>();
         Anim[7] = eyeCameraObj[7].GetComponent<Animator>();
         Anim[8] = eyeCameraObj[8].GetComponent<Animator>();
-
-        lockDoorObj[0].SetActive(false);
-        lockDoorObj[1].SetActive(false);
-        lockDoorObj[2].SetActive(false);
-        lockDoorObj[3].SetActive(false);
-        lockDoorObj[4].SetActive(false);
-        lockDoorObj[5].SetActive(false);
-        lockDoorObj[6].SetActive(false);
-        lockDoorObj[7].SetActive(false);
 
         Anim[9] = costObj[0].GetComponent<Animator>();
         Anim[10] = costObj[1].GetComponent<Animator>();
@@ -221,62 +216,91 @@ public class SkillCost : MonoBehaviour
     }
     public void LockDoor()
     {
-
-        if (cost >= 1 && cameraAnimNum == 3 && !skillCoolDownBool[4])
+        if (RoomCollider.roomCol[0])
         {
-            skillCoolDownBool[4] = true;
-            cost -= 1;
-            Anim[23].SetBool("UISkill", true);
-            lockDoorObj[0].SetActive(true);
+            if (cost >= 1 && cameraAnimNum == 3 && !skillCoolDownBool[4])
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                GameObject G3 = Instantiate(ghost, lockDoorObj[0].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 0, 0);
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 4 && !skillCoolDownBool[4])
+        if (RoomCollider.roomCol[1])
         {
-            skillCoolDownBool[4] = true;
-            cost -= 1;
-            Anim[23].SetBool("UISkill", true);
-            lockDoorObj[1].SetActive(true);
+            if (cost >= 1 && cameraAnimNum == 4 && !skillCoolDownBool[4])
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                GameObject G3 = Instantiate(ghost, lockDoorObj[1].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, -90, 0);
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 5 && !skillCoolDownBool[4])
+        if (RoomCollider.roomCol[2])
         {
-            skillCoolDownBool[4] = true;
-            cost -= 1;
-            Anim[23].SetBool("UISkill", true);
-            lockDoorObj[2].SetActive(true);
+            if (cost >= 1 && cameraAnimNum == 5 && !skillCoolDownBool[4])
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                GameObject G3 = Instantiate(ghost, lockDoorObj[2].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 90, 0);
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 6 && !skillCoolDownBool[4])
+        if (RoomCollider.roomCol[3])
         {
-            skillCoolDownBool[4] = true;
-            cost -= 1;
-            Anim[23].SetBool("UISkill", true);
-            lockDoorObj[3].SetActive(true);
+            if (cost >= 1 && cameraAnimNum == 6 && !skillCoolDownBool[4])
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                GameObject G3 = Instantiate(ghost, lockDoorObj[3].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 0, 0);
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 7 && !skillCoolDownBool[4])
+        if (RoomCollider.roomCol[4])
         {
-            skillCoolDownBool[4] = true;
-            cost -= 1;
-            Anim[23].SetBool("UISkill", true);
-            lockDoorObj[4].SetActive(true);
+            if (cost >= 1 && cameraAnimNum == 7 && !skillCoolDownBool[4])
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                GameObject G3 = Instantiate(ghost, lockDoorObj[4].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, -90, 0);
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 8 && !skillCoolDownBool[4])
+        if (RoomCollider.roomCol[5])
         {
-            skillCoolDownBool[4] = true;
-            cost -= 1;
-            Anim[23].SetBool("UISkill", true);
-            lockDoorObj[5].SetActive(true);
+            if (cost >= 1 && cameraAnimNum == 8 && !skillCoolDownBool[4])
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                GameObject G3 = Instantiate(ghost, lockDoorObj[5].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 90, 0);
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 1 && !skillCoolDownBool[4])
+        if (RoomCollider.roomCol[7])
         {
-            skillCoolDownBool[4] = true;
-            cost -= 1;
-            Anim[23].SetBool("UISkill", true);
-            lockDoorObj[6].SetActive(true);
+            if (cost >= 1 && cameraAnimNum == 1 && !skillCoolDownBool[4])
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                uiObj2.SetActive(true);
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 2 && !skillCoolDownBool[4])
+        if (RoomCollider.roomCol[6])
         {
-            skillCoolDownBool[4] = true;
-            cost -= 1;
-            Anim[23].SetBool("UISkill", true);
-            lockDoorObj[7].SetActive(true);
+            if (cost >= 1 && cameraAnimNum == 2 && !skillCoolDownBool[4])
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                uiObj.SetActive(true);
+            }
         }
     }
     public void RoadDefense()

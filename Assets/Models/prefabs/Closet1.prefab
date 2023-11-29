@@ -278,8 +278,7 @@ GameObject:
   - component: {fileID: 4247842002071460736}
   - component: {fileID: 531620146442773455}
   - component: {fileID: 8983335159149473985}
-  - component: {fileID: 2386186666762518745}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,19 +350,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2386186666762518745
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1410352938641583679}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.7110852, y: 0.4648289, z: 0.8728833}
-  m_Center: {x: 0.4068107, y: 0.27309576, z: -0.014845267}
 --- !u!1 &1510541036464590284
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +442,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8511303551123300264}
-  m_Layer: 0
+  - component: {fileID: 5528267956755328139}
+  m_Layer: 15
   m_Name: shelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -480,6 +467,19 @@ Transform:
   m_Father: {fileID: 8391405139058127243}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5528267956755328139
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027830836762407423}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7108238, y: 0.49116108, z: 0.86906767}
+  m_Center: {x: -0.0104726255, y: -0.13451074, z: -0.4930091}
 --- !u!1 &2172187382808570244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,8 +1075,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5949254750125211032}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000015258789, y: -0.124089345, z: -0.44658634}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00000014901161, y: -0.1240893, z: -0.44658637}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1368,6 +1368,51 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8516433970503251431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6603704087149530056}
+  - component: {fileID: 7606165477116904104}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6603704087149530056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8516433970503251431}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.2747998, z: -0.045000076}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8391405139058127243}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7606165477116904104
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8516433970503251431}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7968633, y: 0.06730437, z: 0.9175496}
+  m_Center: {x: 0.00009766221, y: 0.4663478, z: 0.001121521}
 --- !u!1 &8627500700451915357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1579,7 @@ Transform:
   - {fileID: 935073059321880090}
   - {fileID: 63365458378027184}
   - {fileID: 8511303551123300264}
+  - {fileID: 6603704087149530056}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
