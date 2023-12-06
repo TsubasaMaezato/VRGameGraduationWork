@@ -6,6 +6,10 @@ using UnityEngine.Rendering;
 
 public class SkillCost : MonoBehaviour
 {
+    GameObject chair;
+    int chairNum;
+    Rigidbody chairRb;
+
     public GameObject uiObj;
     public GameObject uiObj2;
     public GameObject[] roomCollider;
@@ -149,69 +153,101 @@ public class SkillCost : MonoBehaviour
     }
     public void Poltergeist()
     {
-        if (cost >= 1 && cameraAnimNum == 1 && !skillCoolDownBool[3])
+        if (RoomCollider.roomCol[0])
         {
-            skillCoolDownBool[3] = true;
-            cost -= 1;
-            Anim[24].SetBool("UISkill", true);
-            /* GameObject G2 = Instantiate(ghost2[0], new Vector3(27, 0, 17), Quaternion.identity);
-             G2.transform.Rotate(0, 180, 0);*/
+            if (cost >= 1 && cameraAnimNum == 3 && !skillCoolDownBool[3])
+            {
+                skillCoolDownBool[3] = true;
+                cost -= 1;
+                PlayerVR.hp -= 5;
+                Anim[24].SetBool("UISkill", true);
+
+                StartCoroutine(ChairAddForce());
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 2 && !skillCoolDownBool[3])
+        if (RoomCollider.roomCol[1])
         {
-            skillCoolDownBool[3] = true;
-            cost -= 1;
-            Anim[24].SetBool("UISkill", true);
-            /*GameObject G2 = Instantiate(ghost2[0], new Vector3(-27, 0, 17), Quaternion.identity);
-            G2.transform.Rotate(0, 180, 0);*/
+            if (cost >= 1 && cameraAnimNum == 4 && !skillCoolDownBool[3])
+            {
+                skillCoolDownBool[3] = true;
+                cost -= 1;
+                PlayerVR.hp -= 5;
+                Anim[24].SetBool("UISkill", true);
+
+                StartCoroutine(ChairAddForce());
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 3 && !skillCoolDownBool[3])
+        if (RoomCollider.roomCol[2])
         {
-            skillCoolDownBool[3] = true;
-            cost -= 1;
-            Anim[24].SetBool("UISkill", true);
-            /* GameObject G2 = Instantiate(ghost2[1], ghost2Pos[0].transform.position, Quaternion.identity);
-             G2.transform.Rotate(0, 180, 0);*/
+            if (cost >= 1 && cameraAnimNum == 5 && !skillCoolDownBool[3])
+            {
+                skillCoolDownBool[3] = true;
+                cost -= 1;
+                PlayerVR.hp -= 5;
+                Anim[24].SetBool("UISkill", true);
+
+                StartCoroutine(ChairAddForce());
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 4 && !skillCoolDownBool[3])
+        if (RoomCollider.roomCol[3])
         {
-            skillCoolDownBool[3] = true;
-            cost -= 1;
-            Anim[24].SetBool("UISkill", true);
-            /*GameObject G2 = Instantiate(ghost2[1], ghost2Pos[1].transform.position, Quaternion.identity);
-            G2.transform.Rotate(0, 90, 0);*/
+            if (cost >= 1 && cameraAnimNum == 6 && !skillCoolDownBool[3])
+            {
+                skillCoolDownBool[3] = true;
+                cost -= 1;
+                PlayerVR.hp -= 5;
+                Anim[24].SetBool("UISkill", true);
+
+                StartCoroutine(ChairAddForce());
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 5 && !skillCoolDownBool[3])
+        if (RoomCollider.roomCol[4])
         {
-            skillCoolDownBool[3] = true;
-            cost -= 1;
-            Anim[24].SetBool("UISkill", true);
-            /* GameObject G2 = Instantiate(ghost2[1], ghost2Pos[2].transform.position, Quaternion.identity);
-             G2.transform.Rotate(0, -90, 0);*/
+            if (cost >= 1 && cameraAnimNum == 7 && !skillCoolDownBool[3])
+            {
+                skillCoolDownBool[3] = true;
+                cost -= 1;
+                PlayerVR.hp -= 5;
+                Anim[24].SetBool("UISkill", true);
+
+                StartCoroutine(ChairAddForce());
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 6 && !skillCoolDownBool[3])
+        if (RoomCollider.roomCol[5])
         {
-            skillCoolDownBool[3] = true;
-            cost -= 1;
-            Anim[24].SetBool("UISkill", true);
-            /* GameObject G2 = Instantiate(ghost2[1], ghost2Pos[3].transform.position, Quaternion.identity);
-             G2.transform.Rotate(0, 180, 0);*/
+            if (cost >= 1 && cameraAnimNum == 8 && !skillCoolDownBool[3])
+            {
+                skillCoolDownBool[3] = true;
+                cost -= 1;
+                PlayerVR.hp -= 5;
+                Anim[24].SetBool("UISkill", true);
+
+                StartCoroutine(ChairAddForce());
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 7 && !skillCoolDownBool[3])
+        if (RoomCollider.roomCol[7])
         {
-            skillCoolDownBool[3] = true;
-            cost -= 1;
-            Anim[24].SetBool("UISkill", true);
-            /* GameObject G2 = Instantiate(ghost2[1], ghost2Pos[4].transform.position, Quaternion.identity);
-             G2.transform.Rotate(0, 90, 0);*/
+            if (cost >= 1 && cameraAnimNum == 1 && !skillCoolDownBool[3])
+            {
+                skillCoolDownBool[3] = true;
+                cost -= 1;
+                PlayerVR.hp -= 5;
+                Anim[24].SetBool("UISkill", true);
+
+                StartCoroutine(ChairAddForce());
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 8 && !skillCoolDownBool[3])
+        if (RoomCollider.roomCol[6])
         {
-            skillCoolDownBool[3] = true;
-            cost -= 1;
-            Anim[24].SetBool("UISkill", true);
-            /*GameObject G2 = Instantiate(ghost2[1], ghost2Pos[5].transform.position, Quaternion.identity);
-            G2.transform.Rotate(0, -90, 0);*/
+            if (cost >= 1 && cameraAnimNum == 2 && !skillCoolDownBool[3])
+            {
+                skillCoolDownBool[3] = true;
+                cost -= 1;
+                PlayerVR.hp -= 5;
+                Anim[24].SetBool("UISkill", true);
+
+                StartCoroutine(ChairAddForce());
+            }
         }
     }
     public void LockDoor()
@@ -502,6 +538,81 @@ public class SkillCost : MonoBehaviour
             cameraCoolDownBool = true;
         }
     }
+
+    IEnumerator ChairAddForce()
+    {
+        if (RoomCollider.roomCol[0])
+        {
+            chairNum = Random.Range(1, 17);
+
+            chair = GameObject.Find("Chair" + chairNum);
+            chairRb = chair.GetComponent<Rigidbody>();
+
+            if(chair.tag == "ChairRight")
+            {
+                chairRb.AddForce(transform.right * 10, ForceMode.Impulse);
+            }
+            if (chair.tag == "ChairLeft")
+            {
+                chairRb.AddForce(transform.right * -10, ForceMode.Impulse);
+            }
+
+            yield return new WaitForSeconds(5); 
+            chair.GetComponent<Chair>().PositionReset();
+            yield break;
+        }
+        if (RoomCollider.roomCol[1])
+        {
+            chairNum = Random.Range(17, 19);
+
+            chair = GameObject.Find("Chair" + chairNum);
+            chairRb = chair.GetComponent<Rigidbody>();
+
+            chairRb.AddForce(transform.forward * -10, ForceMode.Impulse);
+            yield return new WaitForSeconds(5);
+            chair.GetComponent<Chair>().PositionReset();
+            yield break;
+        }
+        if (RoomCollider.roomCol[3])
+        {
+            chairNum = Random.Range(19, 27);
+
+            chair = GameObject.Find("Chair" + chairNum);
+            chairRb = chair.GetComponent<Rigidbody>();
+
+            if (chair.tag == "ChairRight")
+            {
+                chairRb.AddForce(transform.forward * -10, ForceMode.Impulse);
+            }
+            if (chair.tag == "ChairLeft")
+            {
+                chairRb.AddForce(transform.forward * 10, ForceMode.Impulse);
+            }
+            yield return new WaitForSeconds(5);
+            chair.GetComponent<Chair>().PositionReset();
+            yield break;
+        }
+        if (RoomCollider.roomCol[4])
+        {
+            chair = GameObject.Find("Chair27");
+            chairRb = chair.GetComponent<Rigidbody>();
+
+            chairRb.AddForce(transform.forward * -10, ForceMode.Impulse);
+            yield return new WaitForSeconds(5);
+            chair.GetComponent<Chair>().PositionReset();
+            yield break;
+        }
+        if (RoomCollider.roomCol[5])
+        {
+            chair = GameObject.Find("Chair28");
+            chairRb = chair.GetComponent<Rigidbody>();
+            chairRb.AddForce(transform.right * -10, ForceMode.Impulse);
+            yield return new WaitForSeconds(5);
+            chair.GetComponent<Chair>().PositionReset();
+            yield break;
+        }
+
+    }
     void AmuletInst()
     {
         if (amuletOn)
@@ -559,7 +670,7 @@ public class SkillCost : MonoBehaviour
         if (skillCoolDownBool[3])
         {
             skillCoolDown3 += Time.deltaTime;
-            if (skillCoolDown3 >= 3)
+            if (skillCoolDown3 >= 7)
             {
                 Anim[24].SetBool("UISkill", false);
                 skillCoolDown3 = 0;

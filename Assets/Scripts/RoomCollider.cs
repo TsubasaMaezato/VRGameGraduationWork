@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoomCollider : MonoBehaviour
 {
     public static bool[] roomCol = new bool[8];
-
+    public static bool Poltergeist;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +15,7 @@ public class RoomCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Poltergeist = false;
     }
     private void OnTriggerStay(Collider other)
     {

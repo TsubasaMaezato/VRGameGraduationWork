@@ -75,12 +75,12 @@ public class CameraChange : MonoBehaviour
         curseOBJ.SetActive(false);
         hidePos.SetActive(true);
     }
-    public void CloseCurseOBJMask()
+    /*public void CloseCurseOBJMask()
     {
         objNum = 4;
         curseOBJ.SetActive(false);
         hidePos.SetActive(true);
-    }
+    }*/
     public void CloseRoom1()
     {
         hidePosNum = Random.Range(0, 3);
@@ -164,7 +164,7 @@ public class CameraChange : MonoBehaviour
             O.name = hideObj[1].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(6, 9);
+            hidePosNum = Random.Range(15, 18);
             GameObject B = Instantiate(hideObj[2], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             B.name = hideObj[2].name;
 
@@ -173,17 +173,17 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+          /*  yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
         if (objNum == 1)
         {
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(3, 6);
+            hidePosNum = Random.Range(12, 14);
             GameObject O = Instantiate(hideObj[0], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             O.name = hideObj[0].name;
 
@@ -197,10 +197,10 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+          /*  yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
@@ -217,21 +217,21 @@ public class CameraChange : MonoBehaviour
             B.name = hideObj[1].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(9, 12);
+            hidePosNum = Random.Range(15, 18);
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+            /*yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
         if (objNum == 3)
         {
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(3, 6);
+            hidePosNum = Random.Range(12, 15);
             GameObject O = Instantiate(hideObj[0], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             O.name = hideObj[0].name;
 
@@ -245,14 +245,14 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[2], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[2].name;
 
-            yield return new WaitForSeconds(1);
+            /*yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
-        if (objNum == 4)
+        /*if (objNum == 4)
         {
             yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(3, 6);
@@ -275,7 +275,7 @@ public class CameraChange : MonoBehaviour
             N.name = hideObj[3].name;
 
             yield break;
-        }
+        }*/
     }
     IEnumerator InstOBJ2()
     {
@@ -292,14 +292,14 @@ public class CameraChange : MonoBehaviour
             B.name = hideObj[2].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(9, 12);
+            hidePosNum = Random.Range(12, 15);
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+          /*  yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
@@ -311,7 +311,7 @@ public class CameraChange : MonoBehaviour
             O.name = hideObj[0].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(6, 9);
+            hidePosNum = Random.Range(15, 18);
             GameObject B = Instantiate(hideObj[2], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             B.name = hideObj[2].name;
 
@@ -320,10 +320,10 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
@@ -340,14 +340,14 @@ public class CameraChange : MonoBehaviour
             B.name = hideObj[1].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(9, 12);
+            hidePosNum = Random.Range(12, 15);
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+          /*  yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
@@ -359,7 +359,7 @@ public class CameraChange : MonoBehaviour
             O.name = hideObj[0].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(6, 9);
+            hidePosNum = Random.Range(12, 15);
             GameObject B = Instantiate(hideObj[1], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             B.name = hideObj[1].name;
 
@@ -368,14 +368,14 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[2], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[2].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
-        if (objNum == 4)
+      /* if (objNum == 4)
         {
             yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(0, 3);
@@ -398,14 +398,14 @@ public class CameraChange : MonoBehaviour
             N.name = hideObj[3].name;
 
             yield break;
-        }
+        }*/
     }
     IEnumerator InstOBJ3()
     {
         if (objNum == 0)
         {
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(0, 3);
+            hidePosNum = Random.Range(15, 18);
             GameObject O = Instantiate(hideObj[1], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             O.name = hideObj[1].name;
 
@@ -419,10 +419,10 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
@@ -434,7 +434,7 @@ public class CameraChange : MonoBehaviour
             O.name = hideObj[0].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(3, 6);
+            hidePosNum = Random.Range(12, 15);
             GameObject B = Instantiate(hideObj[2], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             B.name = hideObj[2].name;
 
@@ -443,10 +443,10 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
@@ -467,10 +467,10 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
@@ -487,18 +487,18 @@ public class CameraChange : MonoBehaviour
             B.name = hideObj[1].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(9, 12);
+            hidePosNum = Random.Range(15, 18);
             GameObject J = Instantiate(hideObj[2], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[2].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
-        if (objNum == 4)
+     /*   if (objNum == 4)
         {
             yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(0, 3);
@@ -521,7 +521,7 @@ public class CameraChange : MonoBehaviour
             N.name = hideObj[3].name;
 
             yield break;
-        }
+        }*/
     }
     IEnumerator InstOBJ4()
     {
@@ -533,7 +533,7 @@ public class CameraChange : MonoBehaviour
             O.name = hideObj[1].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(3, 6);
+            hidePosNum = Random.Range(12, 15);
             GameObject B = Instantiate(hideObj[2], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             B.name = hideObj[2].name;
 
@@ -542,17 +542,17 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
         if (objNum == 1)
         {
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(0, 3);
+            hidePosNum = Random.Range(15, 18);
             GameObject O = Instantiate(hideObj[0], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             O.name = hideObj[0].name;
 
@@ -566,10 +566,10 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+            /*yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
@@ -586,14 +586,14 @@ public class CameraChange : MonoBehaviour
             B.name = hideObj[1].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(6, 9);
+            hidePosNum = Random.Range(12, 15);
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
@@ -605,7 +605,7 @@ public class CameraChange : MonoBehaviour
             O.name = hideObj[0].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(3, 6);
+            hidePosNum = Random.Range(15, 18);
             GameObject B = Instantiate(hideObj[1], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             B.name = hideObj[1].name;
 
@@ -614,14 +614,14 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[2], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[2].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
-        if (objNum == 4)
+      /*  if (objNum == 4)
         {
             yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(0, 3);
@@ -644,7 +644,7 @@ public class CameraChange : MonoBehaviour
             N.name = hideObj[3].name;
 
             yield break;
-        }
+        }*/
     }
     IEnumerator InstOBJ5()
     {
@@ -656,7 +656,7 @@ public class CameraChange : MonoBehaviour
             O.name = hideObj[1].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(3, 6);
+            hidePosNum = Random.Range(9, 12);
             GameObject B = Instantiate(hideObj[2], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             B.name = hideObj[2].name;
 
@@ -665,17 +665,17 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+            /*yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(9, 12);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
         if (objNum == 1)
         {
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(0, 3);
+            hidePosNum = Random.Range(9, 12);
             GameObject O = Instantiate(hideObj[0], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             O.name = hideObj[0].name;
 
@@ -685,14 +685,14 @@ public class CameraChange : MonoBehaviour
             B.name = hideObj[2].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(6, 9);
+            hidePosNum = Random.Range(15, 18);
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(9, 12);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
@@ -704,7 +704,7 @@ public class CameraChange : MonoBehaviour
             O.name = hideObj[1].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(3, 6);
+            hidePosNum = Random.Range(15, 18);
             GameObject B = Instantiate(hideObj[0], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             B.name = hideObj[0].name;
 
@@ -713,17 +713,17 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+            /*yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(9, 12);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
         if (objNum == 3)
         {
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(0, 3);
+            hidePosNum = Random.Range(15, 18);
             GameObject O = Instantiate(hideObj[1], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             O.name = hideObj[1].name;
 
@@ -737,14 +737,14 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[0], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[0].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(9, 12);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
-        if (objNum == 4)
+       /* if (objNum == 4)
         {
             yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(0, 3);
@@ -767,19 +767,19 @@ public class CameraChange : MonoBehaviour
             N.name = hideObj[0].name;
 
             yield break;
-        }
+        }*/
     }
     IEnumerator InstOBJ6()
     {
         if (objNum == 0)
         {
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(12, 15);
+            hidePosNum = Random.Range(0, 3);
             GameObject O = Instantiate(hideObj[1], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             O.name = hideObj[1].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(3, 6);
+            hidePosNum = Random.Range(12, 15);
             GameObject B = Instantiate(hideObj[2], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             B.name = hideObj[2].name;
 
@@ -788,10 +788,10 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(9, 12);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
@@ -799,7 +799,7 @@ public class CameraChange : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
-            GameObject O = Instantiate(hideObj[1], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
+            GameObject O = Instantiate(hideObj[2], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             O.name = hideObj[1].name;
 
             yield return new WaitForSeconds(1);
@@ -812,22 +812,22 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(9, 12);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
         if (objNum == 2)
         {
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(12, 15);
+            hidePosNum = Random.Range(9, 12);
             GameObject O = Instantiate(hideObj[1], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             O.name = hideObj[1].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(3, 6);
+            hidePosNum = Random.Range(15, 18);
             GameObject B = Instantiate(hideObj[0], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             B.name = hideObj[0].name;
 
@@ -836,10 +836,10 @@ public class CameraChange : MonoBehaviour
             GameObject J = Instantiate(hideObj[3], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[3].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(9, 12);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
@@ -856,18 +856,18 @@ public class CameraChange : MonoBehaviour
             B.name = hideObj[2].name;
 
             yield return new WaitForSeconds(1);
-            hidePosNum = Random.Range(6, 9);
+            hidePosNum = Random.Range(0, 3);
             GameObject J = Instantiate(hideObj[0], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
             J.name = hideObj[0].name;
 
-            yield return new WaitForSeconds(1);
+           /* yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(9, 12);
             GameObject N = Instantiate(hideObj[4], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
-            N.name = hideObj[4].name;
+            N.name = hideObj[4].name;*/
 
             yield break;
         }
-        if (objNum == 4)
+      /*  if (objNum == 4)
         {
             yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(12, 15);
@@ -890,6 +890,6 @@ public class CameraChange : MonoBehaviour
             N.name = hideObj[0].name;
 
             yield break;
-        }
+        }*/
     }
 }
