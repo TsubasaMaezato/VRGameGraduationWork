@@ -53,25 +53,25 @@ public class CameraChange : MonoBehaviour
     }
     public void CloseCurseOBJFamillyPic()
     {
-        objNum = 0;
+        objNum = 3;
         curseOBJ.SetActive(false);
         hidePos.SetActive(true);
     }
     public void CloseCurseOBJPainting()
     {
-        objNum = 1;
+        objNum = 3;
         curseOBJ.SetActive(false);
         hidePos.SetActive(true);
     }
     public void CloseCurseOBJDoll()
     {
-        objNum = 2;
+        objNum = 0;
         curseOBJ.SetActive(false);
         hidePos.SetActive(true);
     }
     public void CloseCurseOBJPot()
     {
-        objNum = 3;
+        objNum = 2;
         curseOBJ.SetActive(false);
         hidePos.SetActive(true);
     }

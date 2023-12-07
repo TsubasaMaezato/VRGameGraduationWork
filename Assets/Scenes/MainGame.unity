@@ -8403,6 +8403,7 @@ GameObject:
   - component: {fileID: 662768039}
   - component: {fileID: 662768040}
   - component: {fileID: 662768041}
+  - component: {fileID: 662768042}
   m_Layer: 5
   m_Name: MainGameCanvas
   m_TagString: Untagged
@@ -8560,6 +8561,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fea710a34b7e9c43962383e3de4fec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  se:
+  - {fileID: 8300000, guid: 8d6aebc6f6f3416449a1f5847c6bf351, type: 3}
+  - {fileID: 8300000, guid: a91bf0f28b7cd9a48abc426fbac49114, type: 3}
+  - {fileID: 8300000, guid: 1dc2988ad7184aa4fab30638e8c05eb7, type: 3}
+  - {fileID: 8300000, guid: 7bd71a424fe7c004fa17e68db1a4530d, type: 3}
+  - {fileID: 8300000, guid: 07bdd76efaabe9f45a1c33577a052736, type: 3}
+  - {fileID: 8300000, guid: b955523b3e7694044adbf471bb71733c, type: 3}
+  - {fileID: 8300000, guid: 1f8ebae168ca0024ca3f30803ed1fca1, type: 3}
+  - {fileID: 8300000, guid: 802c695362c072d4f9d686ee79ddb6c9, type: 3}
+  - {fileID: 8300000, guid: 75d54b6d06e2727408bd0519cda24010, type: 3}
   uiObj: {fileID: 350886284}
   uiObj2: {fileID: 1728681114}
   roomCollider: []
@@ -8657,8 +8668,6 @@ MonoBehaviour:
   - {fileID: 1783162675}
   - {fileID: 1838027206}
   amulet: {fileID: 3680681130899919232, guid: 32bbee03cf020a5409b762da6e70b120, type: 3}
-  se:
-  - {fileID: 8300000, guid: e9e4889a8f50b914389a241f8eef21d6, type: 3}
   rt:
   - {fileID: 8400000, guid: 487ab63234dce1b42b128ef2f4b80997, type: 2}
   - {fileID: 8400000, guid: 06cb1311021de5e4ebcf29faf81474bd, type: 2}
@@ -8814,6 +8823,18 @@ MonoBehaviour:
   - {fileID: 1836117935}
   - {fileID: 176474218}
   - {fileID: 1924196937}
+--- !u!114 &662768042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662768032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed760ea9d0beb054b8e97bf89208fdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &665062223
 GameObject:
   m_ObjectHideFlags: 0
@@ -29210,6 +29231,18 @@ MonoBehaviour:
       - m_Target: {fileID: 662768038}
         m_TargetAssemblyTypeName: SkillCost, Assembly-CSharp
         m_MethodName: SoundRing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 662768042}
+        m_TargetAssemblyTypeName: BGM_SEs, Assembly-CSharp
+        m_MethodName: SoundRingSE
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

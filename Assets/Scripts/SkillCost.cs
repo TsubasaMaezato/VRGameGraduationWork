@@ -6,6 +6,11 @@ using UnityEngine.Rendering;
 
 public class SkillCost : MonoBehaviour
 {
+    AudioSource sound;
+    public AudioClip[] se;
+
+    int seNum;
+
     GameObject chair;
     int chairNum;
     Rigidbody chairRb;
@@ -48,9 +53,6 @@ public class SkillCost : MonoBehaviour
 
     bool mapSkillRoadDifenseRight;
     bool mapSkillRoadDifenseLeft;
-
-    AudioSource sound;
-    public AudioClip[] se;
 
     public RenderTexture[] rt;
     public RawImage rawImage;
@@ -120,21 +122,124 @@ public class SkillCost : MonoBehaviour
     }
     public void SoundRing()
     {
-        if(cost >= 1 && !skillCoolDownBool[0])
+        if (cost >= 1 && !skillCoolDownBool[0] && CameraChange.objNum == 0)
         {
             Anim[20].SetBool("UISkill", true);
             skillCoolDownBool[0] = true;
+
+            seNum = Random.Range(0, 2);
+            sound.PlayOneShot(se[seNum]);
+
             cost -= 1;
-            sound.PlayOneShot(se[0]);
+            PlayerVR.hp -= 5;
+        }
+        if (cost >= 1 && !skillCoolDownBool[0] && CameraChange.objNum == 1)
+        {
+            Anim[20].SetBool("UISkill", true);
+            skillCoolDownBool[0] = true;
+
+            seNum = Random.Range(2, 4);
+            sound.PlayOneShot(se[seNum]);
+
+            cost -= 1;
+            PlayerVR.hp -= 5;
+        }
+        if (cost >= 1 && !skillCoolDownBool[0] && CameraChange.objNum == 2)
+        {
+            Anim[20].SetBool("UISkill", true);
+            skillCoolDownBool[0] = true;
+
+            seNum = Random.Range(2, 4);
+            sound.PlayOneShot(se[seNum]);
+
+            cost -= 1;
+            PlayerVR.hp -= 5;
+        }
+        if (cost >= 1 && !skillCoolDownBool[0] && CameraChange.objNum == 3)
+        {
+            Anim[20].SetBool("UISkill", true);
+            skillCoolDownBool[0] = true;
+
+            seNum = Random.Range(0, 2);
+            sound.PlayOneShot(se[seNum]);
+
+            cost -= 1;
             PlayerVR.hp -= 5;
         }
     }
     public void EyeHide()
     {
-        if (cost >= 1 && !skillCoolDownBool[1])
+        if (cost >= 1 && !skillCoolDownBool[1] && CameraChange.objNum == 0)
         {
             Anim[21].SetBool("UISkill", true);
             skillCoolDownBool[1] = true;
+            seNum = Random.Range(0, 2);
+            if (seNum == 0)
+            {
+                sound.PlayOneShot(se[4]);
+            }
+            if (seNum == 1)
+            {
+                sound.PlayOneShot(se[6]);
+            }
+
+            cost -= 1;
+            PlayerVR.hp -= 5;
+            eyeHide.SetActive(true);
+        }
+        if (cost >= 1 && !skillCoolDownBool[1] && CameraChange.objNum == 1)
+        {
+            Anim[21].SetBool("UISkill", true);
+            skillCoolDownBool[1] = true;
+
+            seNum = Random.Range(0, 2);
+            if (seNum == 0)
+            {
+                sound.PlayOneShot(se[5]);
+            }
+            if (seNum == 1)
+            {
+                sound.PlayOneShot(se[6]);
+            }
+
+            cost -= 1;
+            PlayerVR.hp -= 5;
+            eyeHide.SetActive(true);
+        }
+        if (cost >= 1 && !skillCoolDownBool[1] && CameraChange.objNum == 2)
+        {
+            Anim[21].SetBool("UISkill", true);
+            skillCoolDownBool[1] = true;
+
+            seNum = Random.Range(0, 2);
+            if (seNum == 0)
+            {
+                sound.PlayOneShot(se[5]);
+            }
+            if (seNum == 1)
+            {
+                sound.PlayOneShot(se[7]);
+            }
+
+            cost -= 1;
+            PlayerVR.hp -= 5;
+            eyeHide.SetActive(true);
+        }
+        if (cost >= 1 && !skillCoolDownBool[1] && CameraChange.objNum == 3)
+        {
+            Anim[21].SetBool("UISkill", true);
+            skillCoolDownBool[1] = true;
+
+            seNum = Random.Range(0, 2);
+            if (seNum == 0)
+            {
+                sound.PlayOneShot(se[4]);
+            }
+            if (seNum == 1)
+            {
+                sound.PlayOneShot(se[7]);
+            }
+
             cost -= 1;
             PlayerVR.hp -= 5;
             eyeHide.SetActive(true);
@@ -146,6 +251,7 @@ public class SkillCost : MonoBehaviour
         {
             Anim[22].SetBool("UISkill", true);
             skillCoolDownBool[2] = true;
+            sound.PlayOneShot(se[8]);
             cost -= 1;
             PlayerVR.hp -= 5;
             lmc.SwapLightmapData();
