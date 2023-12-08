@@ -6,7 +6,10 @@ using UnityEngine.Rendering;
 
 public class SkillCost : MonoBehaviour
 {
-    AudioSource sound;
+    public GameObject mainCanvas;
+    int PoltergeistRandomNum;
+
+    public AudioSource soundSE;
     public AudioClip[] se;
 
     int seNum;
@@ -109,7 +112,6 @@ public class SkillCost : MonoBehaviour
 
         amuletBool = 99;
         amuletOn = false;
-        sound = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -128,7 +130,14 @@ public class SkillCost : MonoBehaviour
             skillCoolDownBool[0] = true;
 
             seNum = Random.Range(0, 2);
-            sound.PlayOneShot(se[seNum]);
+            if(seNum == 0)
+            {
+                soundSE.PlayOneShot(se[0],0.3f);
+            }
+            if (seNum == 1)
+            {
+                soundSE.PlayOneShot(se[1]);
+            }
 
             cost -= 1;
             PlayerVR.hp -= 5;
@@ -138,8 +147,15 @@ public class SkillCost : MonoBehaviour
             Anim[20].SetBool("UISkill", true);
             skillCoolDownBool[0] = true;
 
-            seNum = Random.Range(2, 4);
-            sound.PlayOneShot(se[seNum]);
+            seNum = Random.Range(0, 2);
+            if (seNum == 0)
+            {
+                soundSE.PlayOneShot(se[3], 0.3f);
+            }
+            if (seNum == 1)
+            {
+                soundSE.PlayOneShot(se[2]);
+            }
 
             cost -= 1;
             PlayerVR.hp -= 5;
@@ -149,8 +165,16 @@ public class SkillCost : MonoBehaviour
             Anim[20].SetBool("UISkill", true);
             skillCoolDownBool[0] = true;
 
-            seNum = Random.Range(2, 4);
-            sound.PlayOneShot(se[seNum]);
+            seNum = Random.Range(0, 2);
+            if (seNum == 0)
+            {
+                soundSE.PlayOneShot(se[3], 0.3f);
+            }
+            if (seNum == 1)
+            {
+                soundSE.PlayOneShot(se[2]);
+            }
+
 
             cost -= 1;
             PlayerVR.hp -= 5;
@@ -161,7 +185,14 @@ public class SkillCost : MonoBehaviour
             skillCoolDownBool[0] = true;
 
             seNum = Random.Range(0, 2);
-            sound.PlayOneShot(se[seNum]);
+            if (seNum == 0)
+            {
+                soundSE.PlayOneShot(se[0], 0.3f);
+            }
+            if (seNum == 1)
+            {
+                soundSE.PlayOneShot(se[1]);
+            }
 
             cost -= 1;
             PlayerVR.hp -= 5;
@@ -176,11 +207,11 @@ public class SkillCost : MonoBehaviour
             seNum = Random.Range(0, 2);
             if (seNum == 0)
             {
-                sound.PlayOneShot(se[4]);
+                soundSE.PlayOneShot(se[4]);
             }
             if (seNum == 1)
             {
-                sound.PlayOneShot(se[6]);
+                soundSE.PlayOneShot(se[6]);
             }
 
             cost -= 1;
@@ -195,11 +226,11 @@ public class SkillCost : MonoBehaviour
             seNum = Random.Range(0, 2);
             if (seNum == 0)
             {
-                sound.PlayOneShot(se[5]);
+                soundSE.PlayOneShot(se[5]);
             }
             if (seNum == 1)
             {
-                sound.PlayOneShot(se[6]);
+                soundSE.PlayOneShot(se[6]);
             }
 
             cost -= 1;
@@ -214,11 +245,11 @@ public class SkillCost : MonoBehaviour
             seNum = Random.Range(0, 2);
             if (seNum == 0)
             {
-                sound.PlayOneShot(se[5]);
+                soundSE.PlayOneShot(se[5]);
             }
             if (seNum == 1)
             {
-                sound.PlayOneShot(se[7]);
+                soundSE.PlayOneShot(se[7]);
             }
 
             cost -= 1;
@@ -233,11 +264,11 @@ public class SkillCost : MonoBehaviour
             seNum = Random.Range(0, 2);
             if (seNum == 0)
             {
-                sound.PlayOneShot(se[4]);
+                soundSE.PlayOneShot(se[4]);
             }
             if (seNum == 1)
             {
-                sound.PlayOneShot(se[7]);
+                soundSE.PlayOneShot(se[7]);
             }
 
             cost -= 1;
@@ -251,7 +282,7 @@ public class SkillCost : MonoBehaviour
         {
             Anim[22].SetBool("UISkill", true);
             skillCoolDownBool[2] = true;
-            sound.PlayOneShot(se[8]);
+            soundSE.PlayOneShot(se[8]);
             cost -= 1;
             PlayerVR.hp -= 5;
             lmc.SwapLightmapData();
@@ -268,7 +299,14 @@ public class SkillCost : MonoBehaviour
                 PlayerVR.hp -= 5;
                 Anim[24].SetBool("UISkill", true);
 
-                StartCoroutine(ChairAddForce());
+                PoltergeistRandomNum = Random.Range(0, 2);
+
+                switch (PoltergeistRandomNum)
+                {
+                    case 0: StartCoroutine(ChairAddForce()); break;
+                    case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
+                }
+
             }
         }
         if (RoomCollider.roomCol[1])
@@ -280,7 +318,13 @@ public class SkillCost : MonoBehaviour
                 PlayerVR.hp -= 5;
                 Anim[24].SetBool("UISkill", true);
 
-                StartCoroutine(ChairAddForce());
+                PoltergeistRandomNum = Random.Range(0, 2);
+
+                switch (PoltergeistRandomNum)
+                {
+                    case 0: StartCoroutine(ChairAddForce()); break;
+                    case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
+                }
             }
         }
         if (RoomCollider.roomCol[2])
@@ -292,7 +336,13 @@ public class SkillCost : MonoBehaviour
                 PlayerVR.hp -= 5;
                 Anim[24].SetBool("UISkill", true);
 
-                StartCoroutine(ChairAddForce());
+                PoltergeistRandomNum = Random.Range(0, 2);
+
+                switch (PoltergeistRandomNum)
+                {
+                    case 0: StartCoroutine(ChairAddForce()); break;
+                    case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
+                }
             }
         }
         if (RoomCollider.roomCol[3])
@@ -304,7 +354,13 @@ public class SkillCost : MonoBehaviour
                 PlayerVR.hp -= 5;
                 Anim[24].SetBool("UISkill", true);
 
-                StartCoroutine(ChairAddForce());
+                PoltergeistRandomNum = Random.Range(0, 2);
+
+                switch (PoltergeistRandomNum)
+                {
+                    case 0: StartCoroutine(ChairAddForce()); break;
+                    case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
+                }
             }
         }
         if (RoomCollider.roomCol[4])
@@ -316,7 +372,13 @@ public class SkillCost : MonoBehaviour
                 PlayerVR.hp -= 5;
                 Anim[24].SetBool("UISkill", true);
 
-                StartCoroutine(ChairAddForce());
+                PoltergeistRandomNum = Random.Range(0, 2);
+
+                switch (PoltergeistRandomNum)
+                {
+                    case 0: StartCoroutine(ChairAddForce()); break;
+                    case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
+                }
             }
         }
         if (RoomCollider.roomCol[5])
@@ -328,7 +390,13 @@ public class SkillCost : MonoBehaviour
                 PlayerVR.hp -= 5;
                 Anim[24].SetBool("UISkill", true);
 
-                StartCoroutine(ChairAddForce());
+                PoltergeistRandomNum = Random.Range(0, 2);
+
+                switch (PoltergeistRandomNum)
+                {
+                    case 0: StartCoroutine(ChairAddForce()); break;
+                    case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
+                }
             }
         }
         if (RoomCollider.roomCol[7])
@@ -340,7 +408,13 @@ public class SkillCost : MonoBehaviour
                 PlayerVR.hp -= 5;
                 Anim[24].SetBool("UISkill", true);
 
-                StartCoroutine(ChairAddForce());
+                PoltergeistRandomNum = Random.Range(0, 2);
+
+                switch (PoltergeistRandomNum)
+                {
+                    case 0: StartCoroutine(ChairAddForce()); break;
+                    case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
+                }
             }
         }
         if (RoomCollider.roomCol[6])
@@ -352,7 +426,13 @@ public class SkillCost : MonoBehaviour
                 PlayerVR.hp -= 5;
                 Anim[24].SetBool("UISkill", true);
 
-                StartCoroutine(ChairAddForce());
+                PoltergeistRandomNum = Random.Range(0, 2);
+
+                switch (PoltergeistRandomNum)
+                {
+                    case 0: StartCoroutine(ChairAddForce()); break;
+                    case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
+                }
             }
         }
     }
@@ -360,66 +440,427 @@ public class SkillCost : MonoBehaviour
     {
         if (RoomCollider.roomCol[0])
         {
-            if (cost >= 1 && cameraAnimNum == 3 && !skillCoolDownBool[4])
+            if (cost >= 1 && cameraAnimNum == 3 && !skillCoolDownBool[4] && CameraChange.objNum == 0)
             {
                 skillCoolDownBool[4] = true;
                 cost -= 1;
                 Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[9]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[0].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 0, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 3 && !skillCoolDownBool[4] && CameraChange.objNum == 1)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[11]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[0].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 0, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 3 && !skillCoolDownBool[4] && CameraChange.objNum == 2)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[9]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[0].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 0, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 3 && !skillCoolDownBool[4] && CameraChange.objNum == 3)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[11]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[0].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 0, 0);
             }
         }
         if (RoomCollider.roomCol[1])
         {
-            if (cost >= 1 && cameraAnimNum == 4 && !skillCoolDownBool[4])
+            if (cost >= 1 && cameraAnimNum == 4 && !skillCoolDownBool[4] && CameraChange.objNum == 0)
             {
                 skillCoolDownBool[4] = true;
                 cost -= 1;
                 Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[9]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[1].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, -90, 0);
             }
-        }
-        if (RoomCollider.roomCol[2])
-        {
-            if (cost >= 1 && cameraAnimNum == 5 && !skillCoolDownBool[4])
+            if (cost >= 1 && cameraAnimNum == 4 && !skillCoolDownBool[4] && CameraChange.objNum == 1)
             {
                 skillCoolDownBool[4] = true;
                 cost -= 1;
                 Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[11]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[1].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, -90, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 4 && !skillCoolDownBool[4] && CameraChange.objNum == 2)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[9]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[1].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, -90, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 4 && !skillCoolDownBool[4] && CameraChange.objNum == 3)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[11]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[1].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, -90, 0);
+            }
+
+        }
+        if (RoomCollider.roomCol[2])
+        {
+            if (cost >= 1 && cameraAnimNum == 5 && !skillCoolDownBool[4] && CameraChange.objNum == 0)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[9]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[2].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 90, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 5 && !skillCoolDownBool[4] && CameraChange.objNum == 1)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[11]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[2].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 90, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 5 && !skillCoolDownBool[4] && CameraChange.objNum == 2)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[9]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[2].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 90, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 5 && !skillCoolDownBool[4] && CameraChange.objNum == 3)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[11]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[2].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 90, 0);
             }
         }
         if (RoomCollider.roomCol[3])
         {
-            if (cost >= 1 && cameraAnimNum == 6 && !skillCoolDownBool[4])
+            if (cost >= 1 && cameraAnimNum == 6 && !skillCoolDownBool[4] && CameraChange.objNum == 0)
             {
                 skillCoolDownBool[4] = true;
                 cost -= 1;
                 Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[9]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[3].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 0, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 6 && !skillCoolDownBool[4] && CameraChange.objNum == 1)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[11]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[3].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 0, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 6 && !skillCoolDownBool[4] && CameraChange.objNum == 2)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[9]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[3].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 0, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 6 && !skillCoolDownBool[4] && CameraChange.objNum == 3)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[11]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[3].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 0, 0);
             }
         }
         if (RoomCollider.roomCol[4])
         {
-            if (cost >= 1 && cameraAnimNum == 7 && !skillCoolDownBool[4])
+            if (cost >= 1 && cameraAnimNum == 7 && !skillCoolDownBool[4] && CameraChange.objNum == 0)
             {
                 skillCoolDownBool[4] = true;
                 cost -= 1;
                 Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[9]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[4].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, -90, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 7 && !skillCoolDownBool[4] && CameraChange.objNum == 1)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[11]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[4].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, -90, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 7 && !skillCoolDownBool[4] && CameraChange.objNum == 2)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[9]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[4].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, -90, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 7 && !skillCoolDownBool[4] && CameraChange.objNum == 3)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[11]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[4].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, -90, 0);
             }
         }
         if (RoomCollider.roomCol[5])
         {
-            if (cost >= 1 && cameraAnimNum == 8 && !skillCoolDownBool[4])
+            if (cost >= 1 && cameraAnimNum == 8 && !skillCoolDownBool[4] && CameraChange.objNum == 0)
             {
                 skillCoolDownBool[4] = true;
                 cost -= 1;
                 Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[9]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[5].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 90, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 8 && !skillCoolDownBool[4] && CameraChange.objNum == 1)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[11]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[5].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 90, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 8 && !skillCoolDownBool[4] && CameraChange.objNum == 2)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[9]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
+                GameObject G3 = Instantiate(ghost, lockDoorObj[5].transform.position, Quaternion.identity);
+                G3.transform.Rotate(0, 90, 0);
+            }
+            if (cost >= 1 && cameraAnimNum == 8 && !skillCoolDownBool[4] && CameraChange.objNum == 3)
+            {
+                skillCoolDownBool[4] = true;
+                cost -= 1;
+                Anim[23].SetBool("UISkill", true);
+                seNum = Random.Range(0, 2);
+                if (seNum == 0)
+                {
+                    soundSE.PlayOneShot(se[11]);
+                }
+                if (seNum == 1)
+                {
+                    soundSE.PlayOneShot(se[10]);
+                }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[5].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 90, 0);
             }

@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class CameraChange : MonoBehaviour
 {
+    public GameObject doorAnimObj;
+
+    public AudioSource soundTitleBGM;
+    public AudioSource soundMainBGM;
+
     public GameObject[] cameraObj;
 
     public GameObject[] hideObj;
@@ -27,6 +32,8 @@ public class CameraChange : MonoBehaviour
     int hidePosNum;
     void Start()
     {
+        soundTitleBGM.Play();
+
         uiObj.SetActive(false);
         title.SetActive(true);
         tutorial.SetActive(false);
@@ -59,7 +66,7 @@ public class CameraChange : MonoBehaviour
     }
     public void CloseCurseOBJPainting()
     {
-        objNum = 3;
+        objNum = 2;
         curseOBJ.SetActive(false);
         hidePos.SetActive(true);
     }
@@ -71,7 +78,7 @@ public class CameraChange : MonoBehaviour
     }
     public void CloseCurseOBJPot()
     {
-        objNum = 2;
+        objNum = 1;
         curseOBJ.SetActive(false);
         hidePos.SetActive(true);
     }
@@ -92,6 +99,8 @@ public class CameraChange : MonoBehaviour
 
         uiObj.SetActive(true);
         StartCoroutine(InstOBJ1());
+        soundTitleBGM.Stop();
+        soundMainBGM.Play();
     }
     public void CloseRoom2()
     {
@@ -104,6 +113,8 @@ public class CameraChange : MonoBehaviour
 
         uiObj.SetActive(true);
         StartCoroutine(InstOBJ2());
+        soundTitleBGM.Stop();
+        soundMainBGM.Play();
     }
     public void CloseRoom3()
     {
@@ -116,6 +127,8 @@ public class CameraChange : MonoBehaviour
 
         uiObj.SetActive(true);
         StartCoroutine(InstOBJ3());
+        soundTitleBGM.Stop();
+        soundMainBGM.Play();
     }
     public void CloseRoom4()
     {
@@ -128,6 +141,8 @@ public class CameraChange : MonoBehaviour
 
         uiObj.SetActive(true);
         StartCoroutine(InstOBJ4());
+        soundTitleBGM.Stop();
+        soundMainBGM.Play();
     }
     public void CloseRoom5()
     {
@@ -140,6 +155,8 @@ public class CameraChange : MonoBehaviour
 
         uiObj.SetActive(true);
         StartCoroutine(InstOBJ5());
+        soundTitleBGM.Stop();
+        soundMainBGM.Play();
     }
     public void CloseRoom6()
     {
@@ -152,11 +169,23 @@ public class CameraChange : MonoBehaviour
 
         uiObj.SetActive(true);
         StartCoroutine(InstOBJ6());
+        soundTitleBGM.Stop();
+        soundMainBGM.Play();
     }
-
+    public void BGMStopIn()
+    {
+        soundMainBGM.Stop();
+        Invoke("BGMStart",5);
+    }
+    void BGMStart()
+    {
+        soundMainBGM.Play();
+    }
     IEnumerator InstOBJ1()
     {
-        if(objNum == 0)
+        yield return new WaitForSeconds(1);
+        doorAnimObj.GetComponent<DoorSE>().DoorSEOn();
+        if (objNum == 0)
         {
             yield return new WaitForSeconds(1);
             hidePosNum = Random.Range(3, 6);
@@ -279,6 +308,8 @@ public class CameraChange : MonoBehaviour
     }
     IEnumerator InstOBJ2()
     {
+        yield return new WaitForSeconds(1);
+        doorAnimObj.GetComponent<DoorSE>().DoorSEOn();
         if (objNum == 0)
         {
             yield return new WaitForSeconds(1);
@@ -402,6 +433,8 @@ public class CameraChange : MonoBehaviour
     }
     IEnumerator InstOBJ3()
     {
+        yield return new WaitForSeconds(1);
+        doorAnimObj.GetComponent<DoorSE>().DoorSEOn();
         if (objNum == 0)
         {
             yield return new WaitForSeconds(1);
@@ -525,6 +558,8 @@ public class CameraChange : MonoBehaviour
     }
     IEnumerator InstOBJ4()
     {
+        yield return new WaitForSeconds(1);
+        doorAnimObj.GetComponent<DoorSE>().DoorSEOn();
         if (objNum == 0)
         {
             yield return new WaitForSeconds(1);
@@ -648,6 +683,8 @@ public class CameraChange : MonoBehaviour
     }
     IEnumerator InstOBJ5()
     {
+        yield return new WaitForSeconds(1);
+        doorAnimObj.GetComponent<DoorSE>().DoorSEOn();
         if (objNum == 0)
         {
             yield return new WaitForSeconds(1);
@@ -771,6 +808,8 @@ public class CameraChange : MonoBehaviour
     }
     IEnumerator InstOBJ6()
     {
+        yield return new WaitForSeconds(1);
+        doorAnimObj.GetComponent<DoorSE>().DoorSEOn();
         if (objNum == 0)
         {
             yield return new WaitForSeconds(1);

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7689544816534470406}
   - component: {fileID: 5571576217513708492}
   - component: {fileID: 6709100636683681066}
+  - component: {fileID: -9063107378529662782}
   m_Layer: 0
   m_Name: Stove
   m_TagString: Untagged
@@ -97,3 +98,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.4264927, y: 1.5431025, z: 1.295552}
   m_Center: {x: -0.00000029802322, y: 0.77155125, z: -0.00000020861626}
+--- !u!114 &-9063107378529662782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6220257772366522905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cbfe98fe8e47824c9ca27d5ef22822a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

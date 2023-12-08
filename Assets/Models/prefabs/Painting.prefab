@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2252239497769409974}
   - component: {fileID: 3634345078738612028}
   - component: {fileID: 8228067086537983037}
+  - component: {fileID: -1314546737327848656}
   m_Layer: 0
   m_Name: Painting
   m_TagString: Untagged
@@ -165,6 +166,18 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
+--- !u!114 &-1314546737327848656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719791417072710849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acef10a2e4e119544aff19afeb62529d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5903410125472326649
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,9 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class Incinerator : MonoBehaviour
 {
+    public GameObject[] fireObj; 
+    public GameObject[] fuels;
+
+    public GameObject fade;
+
+    int objNum;
+    public static int fuelsNum;
+
+    public static bool fire;
+    bool fuelsOn;
     void Start()
     {
-        
+        fuelsNum = 0;
+        fuelsOn = true;
+        fuels[0].SetActive(false);
+        fuels[1].SetActive(false);
+        fuels[2].SetActive(false);
+
+        fireObj[0].SetActive(false);
+        fireObj[1].SetActive(false);
+        fireObj[2].SetActive(false);
+        fireObj[3].SetActive(false);
     }
     void Update()
     {
@@ -15,46 +34,87 @@ public class Incinerator : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.name == "FamillyPicture")
+        if(other.gameObject.tag == "Fuels")
         {
-            if (CameraChange.objNum == 0)
+            if(fuelsNum == 0 && fuelsOn)
             {
-                Destroy(other.gameObject);
-                SceneManager.LoadScene("ResultScene");
+                fuels[0].SetActive(true);
+                fuelsNum = 1;
+                fuelsOn = false;
+                Invoke("FuelsIn", 1);
+            }
+            if (fuelsNum == 1 && fuelsOn)
+            {
+                fuels[1].SetActive(true);
+                fuelsNum = 2;
+                fuelsOn = false;
+                Invoke("FuelsIn", 1);
+            }
+            if (fuelsNum == 2 && fuelsOn)
+            {
+                fuels[2].SetActive(true);
+                fuelsNum = 3;
+                fuelsOn = false;
             }
         }
-        if (other.gameObject.name == "Painting")
+        if (fire)
         {
-            if (CameraChange.objNum == 1)
+            if (other.gameObject.name == "PictureFtame")
             {
-                Destroy(other.gameObject);
-                SceneManager.LoadScene("ResultScene");
+                objNum = 3;
+                fireObj[objNum].SetActive(true);
+                Invoke("DestroyObj", 10);
             }
-        }
-        if (other.gameObject.name == "Doll")
-        {
-            if (CameraChange.objNum == 2)
+            if (other.gameObject.name == "Painting")
             {
-                Destroy(other.gameObject);
-                SceneManager.LoadScene("ResultScene");
+                objNum = 1;
+                fireObj[objNum].SetActive(true);
+                Invoke("DestroyObj", 10);
             }
-        }
-        if (other.gameObject.name == "Pot")
-        {
-            if (CameraChange.objNum == 3)
+            if (other.gameObject.name == "CurseDool")
             {
-                Destroy(other.gameObject);
-                SceneManager.LoadScene("ResultScene");
+                objNum = 0;
+                fireObj[objNum].SetActive(true);
+                Invoke("DestroyObj", 10);
             }
-        }
-        if (other.gameObject.name == "Mask")
-        {
-            if (CameraChange.objNum == 4)
+            if (other.gameObject.name == "CurseKnife")
             {
-                Destroy(other.gameObject);
-                SceneManager.LoadScene("ResultScene");
-            }
-        }
+                objNum = 2;
+                fireObj[objNum].SetActive(true);
+                Invoke("DestroyObj", 10);
 
+            }
+        }      
+    }
+    void FuelsIn()
+    {
+        fuelsOn = true;
+    }
+    void DestroyObj()
+    {
+        Destroy(fireObj[objNum]);
+
+        if (CameraChange.objNum == 0)
+        {
+            StartCoroutine(ResultSceneOn());
+        }
+        if (CameraChange.objNum == 1)
+        {
+            StartCoroutine(ResultSceneOn());
+        }
+        if (CameraChange.objNum == 2)
+        {
+            StartCoroutine(ResultSceneOn());
+        }
+        if (CameraChange.objNum == 3)
+        {
+            StartCoroutine(ResultSceneOn());
+        }
+    }
+    IEnumerator ResultSceneOn()
+    {
+        fade.GetComponent<Animator>().SetBool("ResultOn",true);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("ResultScene");
     }
 }

@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 4487939113608745442}
   - component: {fileID: 4055716828913324353}
   - component: {fileID: 2232274877928607686}
+  - component: {fileID: -3977762899137200106}
   m_Layer: 0
   m_Name: PictureFtame
   m_TagString: Untagged
@@ -166,6 +167,18 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
+--- !u!114 &-3977762899137200106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132677878584825102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acef10a2e4e119544aff19afeb62529d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4173592833310650895
 GameObject:
   m_ObjectHideFlags: 0

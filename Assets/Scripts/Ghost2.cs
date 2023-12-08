@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Ghost2 : MonoBehaviour
 {
+    AudioSource audioSource;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
         Destroy(gameObject, 10);
     }
 
