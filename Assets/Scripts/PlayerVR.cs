@@ -48,7 +48,7 @@ public class PlayerVR : MonoBehaviour
 
     private void Start()
     {
-        hp = 100;
+        hp = 100000;
 
         // store public fields of OVRPlayerController-class to local private fileds
         Acceleration = OVRPlayerControllerComponent.Acceleration;
@@ -67,14 +67,13 @@ public class PlayerVR : MonoBehaviour
 
     private void Update()
     {
-        if(hp >= 100)
+        //hp -= 0.01f * Time.deltaTime;
+
+      /*  if(hp >= 100)
         {
             hp = 100;
-        }
-        if(hp <= 0)
-        {
-            SceneManager.LoadScene("ResultScene");
-        }
+        }*/
+
     }
 
 

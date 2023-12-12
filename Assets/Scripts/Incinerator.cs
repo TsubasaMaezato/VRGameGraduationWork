@@ -30,7 +30,16 @@ public class Incinerator : MonoBehaviour
     }
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            ResultGameController.resultNum = 1;
+            StartCoroutine(ResultSceneOn());
+        }
+        if (PlayerVR.hp <= 0)
+        {
+            ResultGameController.resultNum = 2;
+            StartCoroutine(ResultSceneOn());
+        }
     }
     private void OnCollisionEnter(Collision other)
     {
@@ -61,26 +70,22 @@ public class Incinerator : MonoBehaviour
         {
             if (other.gameObject.name == "PictureFtame")
             {
-                objNum = 3;
-                fireObj[objNum].SetActive(true);
+                fireObj[3].SetActive(true);
                 Invoke("DestroyObj", 10);
             }
             if (other.gameObject.name == "Painting")
             {
-                objNum = 1;
-                fireObj[objNum].SetActive(true);
+                fireObj[2].SetActive(true);
                 Invoke("DestroyObj", 10);
             }
             if (other.gameObject.name == "CurseDool")
             {
-                objNum = 0;
-                fireObj[objNum].SetActive(true);
+                fireObj[0].SetActive(true);
                 Invoke("DestroyObj", 10);
             }
             if (other.gameObject.name == "CurseKnife")
             {
-                objNum = 2;
-                fireObj[objNum].SetActive(true);
+                fireObj[1].SetActive(true);
                 Invoke("DestroyObj", 10);
 
             }
@@ -96,18 +101,22 @@ public class Incinerator : MonoBehaviour
 
         if (CameraChange.objNum == 0)
         {
+            ResultGameController.resultNum = 1;
             StartCoroutine(ResultSceneOn());
         }
         if (CameraChange.objNum == 1)
         {
+            ResultGameController.resultNum = 1;
             StartCoroutine(ResultSceneOn());
         }
         if (CameraChange.objNum == 2)
         {
+            ResultGameController.resultNum = 1;
             StartCoroutine(ResultSceneOn());
         }
         if (CameraChange.objNum == 3)
         {
+            ResultGameController.resultNum = 1;
             StartCoroutine(ResultSceneOn());
         }
     }

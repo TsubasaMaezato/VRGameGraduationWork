@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -182,7 +194,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5b6fc77df545034d8c0da0576ef16fb
+      spriteID: 57b39b38fb82a4b4b8bfd4ecacaa36f4
       internalID: -1713800510
       vertices: []
       indices: 
@@ -203,7 +215,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0d3a0ae18bd5c04194cbfe69a9ce79c
+      spriteID: d91b9a4bcd3bdfe40bdd89c34dbe515c
       internalID: -932704031
       vertices: []
       indices: 
@@ -224,7 +236,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fd32cf2d94f1494190affcff9042a1d
+      spriteID: a475b57fa3356a744a8b4f8eea380c30
       internalID: 1927108394
       vertices: []
       indices: 
@@ -245,7 +257,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 041cbc244be8197498020cc991d44438
+      spriteID: 24d6cdccc2b3b2a448144a81ec391590
       internalID: -1085037936
       vertices: []
       indices: 
@@ -266,7 +278,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9412de6ad230d7b409bc672a960a67a7
+      spriteID: d63525d9f1f26ca459e44a11c1686249
       internalID: -432769567
       vertices: []
       indices: 

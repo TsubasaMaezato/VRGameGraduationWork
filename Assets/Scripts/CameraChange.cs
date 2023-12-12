@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class CameraChange : MonoBehaviour
 {
+    public static int pcBGNum;
+
+    public GameObject[] pcBG;
+
     public GameObject doorAnimObj;
 
     public AudioSource soundTitleBGM;
@@ -39,10 +43,12 @@ public class CameraChange : MonoBehaviour
         tutorial.SetActive(false);
         curseOBJ.SetActive(false);
         hidePos.SetActive(false);
+        pcBG[3].SetActive(false);
 
         doorAnim[0] = DoorR.GetComponent<Animator>();
         doorAnim[1] = DoorL.GetComponent<Animator>();
         cameraChangeCount = 0;
+
     }
     void Update()
     {
@@ -52,35 +58,49 @@ public class CameraChange : MonoBehaviour
     {
         title.SetActive(false);
         tutorial.SetActive(true);
+
+        pcBGNum = Random.Range(1, 5);
+
+        pcBG[0].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
     }
     public void CloseTutorial()
     {
         tutorial.SetActive(false);
         curseOBJ.SetActive(true);
+
+        pcBG[1].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
     }
     public void CloseCurseOBJFamillyPic()
     {
         objNum = 3;
         curseOBJ.SetActive(false);
         hidePos.SetActive(true);
+
+        pcBG[2].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
     }
     public void CloseCurseOBJPainting()
     {
         objNum = 2;
         curseOBJ.SetActive(false);
         hidePos.SetActive(true);
+
+        pcBG[2].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
     }
     public void CloseCurseOBJDoll()
     {
         objNum = 0;
         curseOBJ.SetActive(false);
         hidePos.SetActive(true);
+
+        pcBG[2].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
     }
     public void CloseCurseOBJPot()
     {
         objNum = 1;
         curseOBJ.SetActive(false);
         hidePos.SetActive(true);
+
+        pcBG[2].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
     }
     /*public void CloseCurseOBJMask()
     {
@@ -98,9 +118,13 @@ public class CameraChange : MonoBehaviour
         doorAnim[1].SetBool("DoorClothLeft", true);
 
         uiObj.SetActive(true);
+
         StartCoroutine(InstOBJ1());
         soundTitleBGM.Stop();
         soundMainBGM.Play();
+
+        pcBG[3].SetActive(true);
+        pcBG[3].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
     }
     public void CloseRoom2()
     {
@@ -115,6 +139,9 @@ public class CameraChange : MonoBehaviour
         StartCoroutine(InstOBJ2());
         soundTitleBGM.Stop();
         soundMainBGM.Play();
+
+        pcBG[3].SetActive(true);
+        pcBG[3].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
     }
     public void CloseRoom3()
     {
@@ -129,6 +156,9 @@ public class CameraChange : MonoBehaviour
         StartCoroutine(InstOBJ3());
         soundTitleBGM.Stop();
         soundMainBGM.Play();
+
+        pcBG[3].SetActive(true);
+        pcBG[3].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
     }
     public void CloseRoom4()
     {
@@ -143,6 +173,9 @@ public class CameraChange : MonoBehaviour
         StartCoroutine(InstOBJ4());
         soundTitleBGM.Stop();
         soundMainBGM.Play();
+
+        pcBG[3].SetActive(true);
+        pcBG[3].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
     }
     public void CloseRoom5()
     {
@@ -157,6 +190,9 @@ public class CameraChange : MonoBehaviour
         StartCoroutine(InstOBJ5());
         soundTitleBGM.Stop();
         soundMainBGM.Play();
+
+        pcBG[3].SetActive(true);
+        pcBG[3].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
     }
     public void CloseRoom6()
     {
@@ -171,6 +207,9 @@ public class CameraChange : MonoBehaviour
         StartCoroutine(InstOBJ6());
         soundTitleBGM.Stop();
         soundMainBGM.Play();
+
+        pcBG[3].SetActive(true);
+        pcBG[3].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
     }
     public void BGMStopIn()
     {

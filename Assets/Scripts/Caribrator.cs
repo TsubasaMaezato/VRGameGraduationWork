@@ -33,7 +33,7 @@ public class Caribrator : MonoBehaviour
 
     private void Start()
     {
-        Calibrate();
+        StartCoroutine(Calibrate());
     }
     void Update()
     {
@@ -46,12 +46,13 @@ public class Caribrator : MonoBehaviour
     /**
     * キャリブレーション 
     */
-    public void Calibrate()
+    IEnumerator Calibrate()
     {
         float x = modelHeadPos.transform.position.x - hmdEyePos.transform.position.x + x_offset;
         float y = modelHeadPos.transform.position.y - hmdEyePos.transform.position.y + y_offset;
         float z = modelHeadPos.transform.position.z - hmdEyePos.transform.position.z + z_offset;
         cameraRig.position = new Vector3(cameraRig.position.x + x, cameraRig.position.y + y, cameraRig.position.z + z);
-        // Debug.Log("y: " + y); 
+
+        yield break;
     }
 }
