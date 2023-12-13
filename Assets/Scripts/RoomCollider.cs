@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoomCollider : MonoBehaviour
 {
-    public static bool[] roomCol = new bool[8];
+    public static bool[] roomCol = new bool[9];
     public static bool Poltergeist;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,10 @@ public class RoomCollider : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            if(gameObject.name == "Main")
+            {
+                roomCol[8] = true;
+            }
             if(gameObject.name == "RoomCollider1")
             {
                 roomCol[0] = true;
@@ -59,6 +63,10 @@ public class RoomCollider : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            if (gameObject.name == "Main")
+            {
+                roomCol[8] = false;
+            }
             if (gameObject.name == "RoomCollider1")
             {
                 roomCol[0] = false;

@@ -114,8 +114,8 @@ public class CameraChange : MonoBehaviour
         GameObject O = Instantiate(hideObj[objNum], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
         O.name = hideObj[objNum].name;
         hidePos.SetActive(false);
-        doorAnim[0].SetBool("DoorClothRight", true);
-        doorAnim[1].SetBool("DoorClothLeft", true);
+        doorAnim[0].SetBool("DoorCloth", true);
+        doorAnim[1].SetBool("DoorRightLeft", true);
 
         uiObj.SetActive(true);
 
@@ -132,8 +132,8 @@ public class CameraChange : MonoBehaviour
         GameObject O = Instantiate(hideObj[objNum], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
         O.name = hideObj[objNum].name;
         hidePos.SetActive(false);
-        doorAnim[0].SetBool("DoorClothRight", true);
-        doorAnim[1].SetBool("DoorClothLeft", true);
+        doorAnim[0].SetBool("DoorCloth", true);
+        doorAnim[1].SetBool("DoorRightLeft", true);
 
         uiObj.SetActive(true);
         StartCoroutine(InstOBJ2());
@@ -149,8 +149,8 @@ public class CameraChange : MonoBehaviour
         GameObject O = Instantiate(hideObj[objNum], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
         O.name = hideObj[objNum].name;
         hidePos.SetActive(false);
-        doorAnim[0].SetBool("DoorClothRight", true);
-        doorAnim[1].SetBool("DoorClothLeft", true);
+        doorAnim[0].SetBool("DoorCloth", true);
+        doorAnim[1].SetBool("DoorRightLeft", true);
 
         uiObj.SetActive(true);
         StartCoroutine(InstOBJ3());
@@ -166,8 +166,8 @@ public class CameraChange : MonoBehaviour
         GameObject O = Instantiate(hideObj[objNum], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
         O.name = hideObj[objNum].name;
         hidePos.SetActive(false);
-        doorAnim[0].SetBool("DoorClothRight", true);
-        doorAnim[1].SetBool("DoorClothLeft", true);
+        doorAnim[0].SetBool("DoorCloth", true);
+        doorAnim[1].SetBool("DoorRightLeft", true);
 
         uiObj.SetActive(true);
         StartCoroutine(InstOBJ4());
@@ -183,8 +183,8 @@ public class CameraChange : MonoBehaviour
         GameObject O = Instantiate(hideObj[objNum], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
         O.name = hideObj[objNum].name;
         hidePos.SetActive(false);
-        doorAnim[0].SetBool("DoorClothRight", true);
-        doorAnim[1].SetBool("DoorClothLeft", true);
+        doorAnim[0].SetBool("DoorCloth", true);
+        doorAnim[1].SetBool("DoorRightLeft", true);
 
         uiObj.SetActive(true);
         StartCoroutine(InstOBJ5());
@@ -200,8 +200,8 @@ public class CameraChange : MonoBehaviour
         GameObject O = Instantiate(hideObj[objNum], hideObjPos[hidePosNum].transform.position, Quaternion.identity);
         O.name = hideObj[objNum].name;
         hidePos.SetActive(false);
-        doorAnim[0].SetBool("DoorClothRight", true);
-        doorAnim[1].SetBool("DoorClothLeft", true);
+        doorAnim[0].SetBool("DoorCloth", true);
+        doorAnim[1].SetBool("DoorRightLeft", true);
 
         uiObj.SetActive(true);
         StartCoroutine(InstOBJ6());

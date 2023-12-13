@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4564567129176398489}
   - component: {fileID: 8458218682653975079}
   - component: {fileID: 3087566434805274301}
+  - component: {fileID: -1216475023883387963}
   m_Layer: 0
   m_Name: Syoukyuu
   m_TagString: Untagged
@@ -133,6 +134,18 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
+--- !u!114 &-1216475023883387963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709450828651984033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f6aa436b63c1347b601ffe35b6f3a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7162981048320952413
 GameObject:
   m_ObjectHideFlags: 0

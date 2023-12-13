@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerVR : MonoBehaviour
 {
     public static float hp;
+    public static float hpMinus;
 
     [SerializeField] private GameObject OVRPlayerControllerGameObject = null;
     [SerializeField] private Transform LeftHandAnchorTransform = null;
@@ -48,7 +49,8 @@ public class PlayerVR : MonoBehaviour
 
     private void Start()
     {
-        hp = 100000;
+        hp = 100;
+        hpMinus = 0.01f;
 
         // store public fields of OVRPlayerController-class to local private fileds
         Acceleration = OVRPlayerControllerComponent.Acceleration;
@@ -67,12 +69,12 @@ public class PlayerVR : MonoBehaviour
 
     private void Update()
     {
-        //hp -= 0.01f * Time.deltaTime;
+        hp -= hpMinus * Time.deltaTime;
 
-      /*  if(hp >= 100)
+        if(hp >= 100)
         {
             hp = 100;
-        }*/
+        }
 
     }
 
