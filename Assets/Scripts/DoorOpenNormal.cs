@@ -25,8 +25,6 @@ public class DoorOpenNormal : MonoBehaviour
             {
                 doorAnim[0].GetComponent<Animator>().SetBool("DoorCloth", true);
                 doorAnim[1].GetComponent<Animator>().SetBool("DoorRightLeft", true);
-
-                door.GetComponent<DoorSE>().DoorSEOn();
             }
         }
         if (gameObject.name == "DoorPosB")
@@ -36,8 +34,6 @@ public class DoorOpenNormal : MonoBehaviour
 
                 doorAnim[0].GetComponent<Animator>().SetBool("DoorRightLeft", true);
                 doorAnim[1].GetComponent<Animator>().SetBool("DoorCloth", true);
-
-                door.GetComponent<DoorSE>().DoorSEOn();
             }
         }
 
@@ -48,18 +44,30 @@ public class DoorOpenNormal : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
-                doorAnim[0].GetComponent<Animator>().SetBool("DoorCloth", false);
-                doorAnim[1].GetComponent<Animator>().SetBool("DoorRightLeft", false);
+                StartCoroutine(DoorClose1());
             }
         }
         if (gameObject.name == "DoorPosB")
         {
             if (other.gameObject.tag == "Player")
             {
-
-                doorAnim[0].GetComponent<Animator>().SetBool("DoorRightLeft", false);
-                doorAnim[1].GetComponent<Animator>().SetBool("DoorCloth", false);
+                StartCoroutine(DoorClose2());
             }
         }
+    }
+    IEnumerator DoorClose1()
+    {
+        yield return new WaitForSeconds(2);
+
+        doorAnim[0].GetComponent<Animator>().SetBool("DoorCloth", false);
+        doorAnim[1].GetComponent<Animator>().SetBool("DoorRightLeft", false);
+    }
+
+    IEnumerator DoorClose2()
+    {
+        yield return new WaitForSeconds(2);
+
+        doorAnim[0].GetComponent<Animator>().SetBool("DoorRightLeft", false);
+        doorAnim[1].GetComponent<Animator>().SetBool("DoorCloth", false);
     }
 }

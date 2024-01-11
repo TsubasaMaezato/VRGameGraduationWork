@@ -7,12 +7,16 @@ public class Lighter : MonoBehaviour
     public static bool lighterOn;
     bool lighterTrigger;
 
+    public GameObject particle;
+
     Animator animator;
     void Start()
     {
         animator = GetComponent<Animator>();
         lighterTrigger = false;
         lighterOn = true;
+
+        particle.SetActive(false);
     }
     void Update()
     {
@@ -24,22 +28,31 @@ public class Lighter : MonoBehaviour
                 {
                     animator.SetBool("LighterOn", false);
                     lighterOn = false;
+                    particle.SetActive(false);
                 }
                 else
                 {
                     animator.SetBool("LighterOn", true);
                     lighterOn = true;
+                    particle.SetActive(true);
                 }
             }
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        lighterTrigger = true;
+        if(other.gameObject.layer == 6)
+        {
+            lighterTrigger = true;
+        }
+
     }
     private void OnTriggerExit(Collider other)
     {
-        lighterTrigger = false;
+        if (other.gameObject.layer == 6)
+        {
+            lighterTrigger = false;
+        }
     }
     private void OnCollisionEnter(Collision other)
     {
@@ -48,6 +61,7 @@ public class Lighter : MonoBehaviour
             if (other.gameObject.tag == "Stove" && lighterOn)
             {
                 Incinerator.fire = true;
+                Destroy(gameObject);
             }
         }
     }

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Incinerator : MonoBehaviour
 {
+    public GameObject firePar;
+
     public GameObject[] fireObj; 
     public GameObject[] fuels;
 
@@ -17,6 +19,8 @@ public class Incinerator : MonoBehaviour
     bool fuelsOn;
     void Start()
     {
+        fire = false;
+
         fuelsNum = 0;
         fuelsOn = true;
         fuels[0].SetActive(false);
@@ -27,6 +31,8 @@ public class Incinerator : MonoBehaviour
         fireObj[1].SetActive(false);
         fireObj[2].SetActive(false);
         fireObj[3].SetActive(false);
+
+        firePar.SetActive(false);
     }
     void Update()
     {
@@ -34,6 +40,10 @@ public class Incinerator : MonoBehaviour
         {
             ResultGameController.resultNum = 1;
             StartCoroutine(ResultSceneOn());
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            PlayerVR.hp = 0;
         }
         if (PlayerVR.hp <= 0)
         {
@@ -68,6 +78,7 @@ public class Incinerator : MonoBehaviour
         }
         if (fire)
         {
+            firePar.SetActive(true);
             if (other.gameObject.name == "PictureFtame")
             {
                 fireObj[3].SetActive(true);

@@ -37,7 +37,7 @@ public class PlayerVR : MonoBehaviour
     const float RUN_THRESHOLD = 1.3f;
     const float JUMP_THRESHOLD = 1.5f;
 
-
+    bool moveOn;
     private void Awake()
     {
         Controller
@@ -69,13 +69,14 @@ public class PlayerVR : MonoBehaviour
 
     private void Update()
     {
-        hp -= hpMinus * Time.deltaTime;
-
+        if (SkillCost.gameStart)
+        {
+            hp -= hpMinus * Time.deltaTime;
+        }
         if(hp >= 100)
         {
             hp = 100;
         }
-
     }
 
 
@@ -83,6 +84,11 @@ public class PlayerVR : MonoBehaviour
     {
         HandShakeControler();
         UpdateController();
+
+        if (!moveOn)
+        {
+
+        }
 
         // display for development purpose
       /*  Debug.Log("L-touch velocity: " + touchVelocityL);
@@ -127,16 +133,25 @@ public class PlayerVR : MonoBehaviour
         ortEuler.z = ortEuler.x = 0f;
         ort = Quaternion.Euler(ortEuler);
 
-        if(OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp, OVRInput.Controller.LTouch))
+        if (OVRInput.Get(OVRInput.Button.PrimaryThumbstickUp, OVRInput.Controller.LTouch))
         {
             MoveThrottle += CalculateMoveEffect(moveInfluence, ort, handShakeVel, handShakeAcc);
+
+            moveOn = true;
+            gameObject.GetComponent<Animator>().SetBool("WalkOn", true);
+        }
+        else
+        {
+            gameObject.GetComponent<Animator>().SetBool("WalkOn", false);
         }
         if (OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown, OVRInput.Controller.LTouch))
         {
             MoveThrottle -= CalculateMoveEffect(moveInfluence, ort, handShakeVel, handShakeAcc);
+
+            moveOn = true;
+            gameObject.GetComponent<Animator>().SetBool("WalkOn", true);
         }
     }
-
 
     private Vector3 CalculateMoveEffect(float moveInfluence,
         Quaternion ort, Vector3 handShakeVel, Vector3 handShakeAcc)

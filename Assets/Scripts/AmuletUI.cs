@@ -6,10 +6,18 @@ public class AmuletUI : MonoBehaviour
 {
     void Start()
     {
-        Destroy(gameObject, 6);
+        gameObject.SetActive(false);
+    }
+    private void OnEnable()
+    {
+        Invoke("AmuletEnd", 6);
     }
     void Update()
     {
         
+    }
+    void AmuletEnd()
+    {
+        gameObject.SetActive(false);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Rendering;
 
 public class SkillCost : MonoBehaviour
-{ 
+{  
     public GameObject mainCanvas;
     int PoltergeistRandomNum;
 
@@ -20,6 +20,7 @@ public class SkillCost : MonoBehaviour
 
     public GameObject uiObj;
     public GameObject uiObj2;
+    public GameObject uiObj3;
     public GameObject[] roomCollider;
 
     public Slider skillCoolDownSlider;
@@ -41,7 +42,7 @@ public class SkillCost : MonoBehaviour
     float costTimer;
     bool costOn;
     int costMinus;
-    int dummyCost;
+    bool skillCostDown;
 
     public GameObject coolDownOBJ;
     public GameObject eyeHide;
@@ -57,8 +58,7 @@ public class SkillCost : MonoBehaviour
     bool[] skillCoolDownBool = new bool[7];
     bool cameraCoolDownBool;
 
-    bool mapSkillRoadDifenseRight;
-    bool mapSkillRoadDifenseLeft;
+    public static bool gameStart;
 
     public RenderTexture[] rt;
     public RawImage rawImage;
@@ -72,7 +72,7 @@ public class SkillCost : MonoBehaviour
     float skillCoolDown6;
     private void Awake()
     {
-        Anim[0] = eyeCameraObj[0].GetComponent<Animator>();
+      /*  Anim[0] = eyeCameraObj[0].GetComponent<Animator>();
         Anim[1] = eyeCameraObj[1].GetComponent<Animator>();
         Anim[2] = eyeCameraObj[2].GetComponent<Animator>();
         Anim[3] = eyeCameraObj[3].GetComponent<Animator>();
@@ -80,7 +80,7 @@ public class SkillCost : MonoBehaviour
         Anim[5] = eyeCameraObj[5].GetComponent<Animator>();
         Anim[6] = eyeCameraObj[6].GetComponent<Animator>();
         Anim[7] = eyeCameraObj[7].GetComponent<Animator>();
-        Anim[8] = eyeCameraObj[8].GetComponent<Animator>();
+        Anim[8] = eyeCameraObj[8].GetComponent<Animator>();*/
 
         costObj[0].SetActive(false);
         costObj[1].SetActive(false);
@@ -105,6 +105,7 @@ public class SkillCost : MonoBehaviour
     }
     void Start()
     {
+        gameStart = false;
         cost = -1;
         eyeHide.SetActive(false);
 
@@ -115,21 +116,36 @@ public class SkillCost : MonoBehaviour
 
         amuletBool = 99;
         amuletOn = false;
+
+        skillCostDown = true;
+
+        amuletPos[0].SetActive(false);
+        amuletPos[1].SetActive(false);
+        amuletPos[2].SetActive(false);
+        amuletPos[3].SetActive(false);
+        amuletPos[4].SetActive(false);
+        amuletPos[5].SetActive(false);
+        amuletPos[6].SetActive(false);
+        amuletPos[7].SetActive(false);
+        amuletPos[8].SetActive(false);
     }
 
     void Update()
     {
-        AmuletInst();
-        CameraCoolDownNow();
-        SkillCoolDownNow();
-        CostNow();
-        EyeCamera();
+        if (gameStart)
+        {
+            AmuletInst();
+            CameraCoolDownNow();
+            SkillCoolDownNow();
+            CostNow();
+            EyeCamera();
+        }
     }
     public void SoundRing()
     {
         costMinus = 0;
 
-        if (cost >= costMinus && !skillCoolDownBool[0] && CameraChange.objNum == 0 && dummyCost >= costMinus)
+        if (cost >= costMinus && !skillCoolDownBool[0] && CameraChange.objNum == 0 && skillCostDown)
         {
             Anim[20].SetBool("UISkill", true);
             skillCoolDownBool[0] = true;
@@ -143,12 +159,11 @@ public class SkillCost : MonoBehaviour
             {
                 soundSE.PlayOneShot(se[1]);
             }
-
-            dummyCost -= costMinus;
+            skillCostDown = false;
             StartCoroutine(CostMinus1());
             PlayerVR.hp -= 5;
         }
-        if (cost >= costMinus && !skillCoolDownBool[0] && CameraChange.objNum == 1 && dummyCost >= costMinus)
+        if (cost >= costMinus && !skillCoolDownBool[0] && CameraChange.objNum == 1 && skillCostDown)
         {
             Anim[20].SetBool("UISkill", true);
             skillCoolDownBool[0] = true;
@@ -162,11 +177,11 @@ public class SkillCost : MonoBehaviour
             {
                 soundSE.PlayOneShot(se[2]);
             }
-            dummyCost -= costMinus;
+            skillCostDown = false;
             StartCoroutine(CostMinus1());
             PlayerVR.hp -= 5;
         }
-        if (cost >= costMinus && !skillCoolDownBool[0] && CameraChange.objNum == 2 && dummyCost >= costMinus)
+        if (cost >= costMinus && !skillCoolDownBool[0] && CameraChange.objNum == 2 && skillCostDown)
         {
             Anim[20].SetBool("UISkill", true);
             skillCoolDownBool[0] = true;
@@ -180,11 +195,11 @@ public class SkillCost : MonoBehaviour
             {
                 soundSE.PlayOneShot(se[2]);
             }
-            dummyCost -= costMinus;
+            skillCostDown = false;
             StartCoroutine(CostMinus1());
             PlayerVR.hp -= 5;
         }
-        if (cost >= costMinus && !skillCoolDownBool[0] && CameraChange.objNum == 3 && dummyCost >= costMinus)
+        if (cost >= costMinus && !skillCoolDownBool[0] && CameraChange.objNum == 3 && skillCostDown)
         {
             Anim[20].SetBool("UISkill", true);
             skillCoolDownBool[0] = true;
@@ -198,7 +213,7 @@ public class SkillCost : MonoBehaviour
             {
                 soundSE.PlayOneShot(se[1]);
             }
-            dummyCost -= costMinus;
+            skillCostDown = false;
             StartCoroutine(CostMinus1());
             PlayerVR.hp -= 5;
         }
@@ -206,8 +221,7 @@ public class SkillCost : MonoBehaviour
     public void EyeHide()
     {
         costMinus = 1;
-        dummyCost = (int)cost;
-        if (cost >= costMinus && !skillCoolDownBool[1] && CameraChange.objNum == 0 && dummyCost >= costMinus)
+        if (cost >= costMinus && !skillCoolDownBool[1] && CameraChange.objNum == 0 && skillCostDown)
         {
             Anim[21].SetBool("UISkill", true);
             skillCoolDownBool[1] = true;
@@ -221,12 +235,12 @@ public class SkillCost : MonoBehaviour
                 soundSE.PlayOneShot(se[6]);
             }
 
-            dummyCost -= costMinus;
+            skillCostDown = false;
             StartCoroutine(CostMinus2());
-            PlayerVR.hp -= 5;
+            PlayerVR.hp -= 2;
             eyeHide.SetActive(true);
         }
-        if (cost >= costMinus && !skillCoolDownBool[1] && CameraChange.objNum == 1 && dummyCost >= costMinus)
+        if (cost >= costMinus && !skillCoolDownBool[1] && CameraChange.objNum == 1 && skillCostDown)
         {
             Anim[21].SetBool("UISkill", true);
             skillCoolDownBool[1] = true;
@@ -240,12 +254,12 @@ public class SkillCost : MonoBehaviour
             {
                 soundSE.PlayOneShot(se[6]);
             }
-            dummyCost -= costMinus;
+            skillCostDown = false;
             StartCoroutine(CostMinus2());
-            PlayerVR.hp -= 5;
+            PlayerVR.hp -= 4;
             eyeHide.SetActive(true);
         }
-        if (cost >= costMinus && !skillCoolDownBool[1] && CameraChange.objNum == 2 && dummyCost >= costMinus)
+        if (cost >= costMinus && !skillCoolDownBool[1] && CameraChange.objNum == 2 && skillCostDown)
         {
             Anim[21].SetBool("UISkill", true);
             skillCoolDownBool[1] = true;
@@ -259,12 +273,12 @@ public class SkillCost : MonoBehaviour
             {
                 soundSE.PlayOneShot(se[7]);
             }
-            dummyCost -= costMinus;
+            skillCostDown = false;
             StartCoroutine(CostMinus2());
-            PlayerVR.hp -= 5;
+            PlayerVR.hp -= 4;
             eyeHide.SetActive(true);
         }
-        if (cost >= costMinus && !skillCoolDownBool[1] && CameraChange.objNum == 3 && dummyCost >= costMinus)
+        if (cost >= costMinus && !skillCoolDownBool[1] && CameraChange.objNum == 3 && skillCostDown)
         {
             Anim[21].SetBool("UISkill", true);
             skillCoolDownBool[1] = true;
@@ -278,35 +292,34 @@ public class SkillCost : MonoBehaviour
             {
                 soundSE.PlayOneShot(se[7]);
             }
-            dummyCost -= costMinus;
+            skillCostDown = false;
             StartCoroutine(CostMinus2());
-            PlayerVR.hp -= 5;
+            PlayerVR.hp -= 4;
             eyeHide.SetActive(true);
         }
     }
     public void PowerOutage()
     {
         costMinus = 2;
-        dummyCost = (int)cost;
-        if (cost >= costMinus && !skillCoolDownBool[2] && dummyCost >= costMinus)
+        if (cost >= costMinus && !skillCoolDownBool[2] && skillCostDown)
         {
             Anim[22].SetBool("UISkill", true);
             skillCoolDownBool[2] = true;
             soundSE.PlayOneShot(se[8]);
             StartCoroutine(CostMinus3());
-            dummyCost -= costMinus;
+            skillCostDown = false;
             PlayerVR.hpMinus = 0.05f;
             lmc.SwapLightmapData();
+            Invoke("HPMinus", 10);
         }
     }
     public void Poltergeist()
     {
-        costMinus = 2;
-        dummyCost = (int)cost;
+        costMinus = 1;
 
         if (RoomCollider.roomCol[0])
         {
-            if (cost >= costMinus && cameraAnimNum == 3 && !skillCoolDownBool[3] && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 3 && !skillCoolDownBool[3] && skillCostDown)
             {
                 skillCoolDownBool[3] = true;
                 Anim[24].SetBool("UISkill", true);
@@ -318,13 +331,17 @@ public class SkillCost : MonoBehaviour
                     case 0: StartCoroutine(ChairAddForce()); break;
                     case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
                 }
-                dummyCost -= costMinus;
+                skillCostDown = false;
+                if (RoomCollider.roomCol2[0])
+                {
+                    PlayerVR.hp -= 2;
+                }
                 StartCoroutine(CostMinus3());
             }
         }
         if (RoomCollider.roomCol[1])
         {
-            if (cost >= costMinus && cameraAnimNum == 4 && !skillCoolDownBool[3] && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 4 && !skillCoolDownBool[3] && skillCostDown)
             {
                 skillCoolDownBool[3] = true;
                 PlayerVR.hp -= 5;
@@ -337,13 +354,17 @@ public class SkillCost : MonoBehaviour
                     case 0: StartCoroutine(ChairAddForce()); break;
                     case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
                 }
-                dummyCost -= costMinus;
+                skillCostDown = false;
+                if (RoomCollider.roomCol2[1])
+                {
+                    PlayerVR.hp -= 2;
+                }
                 StartCoroutine(CostMinus3());
             }
         }
         if (RoomCollider.roomCol[2])
         {
-            if (cost >= costMinus && cameraAnimNum == 5 && !skillCoolDownBool[3] && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 5 && !skillCoolDownBool[3] && skillCostDown)
             {
                 skillCoolDownBool[3] = true;
                 PlayerVR.hp -= 5;
@@ -356,13 +377,17 @@ public class SkillCost : MonoBehaviour
                     case 0: StartCoroutine(ChairAddForce()); break;
                     case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
                 }
-                dummyCost -= costMinus;
+                skillCostDown = false;
+                if (RoomCollider.roomCol2[2])
+                {
+                    PlayerVR.hp -= 2;
+                }
                 StartCoroutine(CostMinus3());
             }
         }
         if (RoomCollider.roomCol[3])
         {
-            if (cost >= costMinus && cameraAnimNum == 6 && !skillCoolDownBool[3] && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 6 && !skillCoolDownBool[3] && skillCostDown)
             {
                 skillCoolDownBool[3] = true;
                 PlayerVR.hp -= 5;
@@ -375,13 +400,17 @@ public class SkillCost : MonoBehaviour
                     case 0: StartCoroutine(ChairAddForce()); break;
                     case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
                 }
-                dummyCost -= costMinus;
+                skillCostDown = false;
+                if (RoomCollider.roomCol2[3])
+                {
+                    PlayerVR.hp -= 2;
+                }
                 StartCoroutine(CostMinus3());
             }
         }
         if (RoomCollider.roomCol[4])
         {
-            if (cost >= costMinus && cameraAnimNum == 7 && !skillCoolDownBool[3] && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 7 && !skillCoolDownBool[3] && skillCostDown)
             {
                 skillCoolDownBool[3] = true;
                 PlayerVR.hp -= 5;
@@ -394,16 +423,19 @@ public class SkillCost : MonoBehaviour
                     case 0: StartCoroutine(ChairAddForce()); break;
                     case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
                 }
-                dummyCost -= costMinus;
+                skillCostDown = false;
+                if (RoomCollider.roomCol2[4])
+                {
+                    PlayerVR.hp -= 2;
+                }
                 StartCoroutine(CostMinus3());
             }
         }
         if (RoomCollider.roomCol[5])
         {
-            if (cost >= costMinus && cameraAnimNum == 8 && !skillCoolDownBool[3] && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 8 && !skillCoolDownBool[3] && skillCostDown)
             {
                 skillCoolDownBool[3] = true;
-                PlayerVR.hp -= 5;
                 Anim[24].SetBool("UISkill", true);
 
                 PoltergeistRandomNum = Random.Range(0, 2);
@@ -413,16 +445,19 @@ public class SkillCost : MonoBehaviour
                     case 0: StartCoroutine(ChairAddForce()); break;
                     case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
                 }
-                dummyCost -= costMinus;
+                skillCostDown = false;
+                if (RoomCollider.roomCol2[5])
+                {
+                    PlayerVR.hp -= 2;
+                }
                 StartCoroutine(CostMinus3());
             }
         }
-        if (RoomCollider.roomCol[7])
+      /*  if (RoomCollider.roomCol[7])
         {
-            if (cost >= costMinus && cameraAnimNum == 1 && !skillCoolDownBool[3] && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 1 && !skillCoolDownBool[3] && skillCostDown)
             {
-                skillCoolDownBool[3] = true;
-                PlayerVR.hp -= 5;
+                skillCoolDownBool[3] = true;             
                 Anim[24].SetBool("UISkill", true);
 
                 PoltergeistRandomNum = Random.Range(0, 2);
@@ -432,16 +467,15 @@ public class SkillCost : MonoBehaviour
                     case 0: StartCoroutine(ChairAddForce()); break;
                     case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
                 }
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus3());
             }
         }
         if (RoomCollider.roomCol[6])
         {
-            if (cost >= costMinus && cameraAnimNum == 2 && !skillCoolDownBool[3] && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 2 && !skillCoolDownBool[3] && skillCostDown)
             {
                 skillCoolDownBool[3] = true;
-                PlayerVR.hp -= 5;
                 Anim[24].SetBool("UISkill", true);
 
                 PoltergeistRandomNum = Random.Range(0, 2);
@@ -451,20 +485,18 @@ public class SkillCost : MonoBehaviour
                     case 0: StartCoroutine(ChairAddForce()); break;
                     case 1: mainCanvas.GetComponent<CameraChange>().BGMStopIn(); break;
                 }
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus3());
             }
-        }
+        }*/
     }
     public void LockDoor()
     {
         costMinus = 4;
-        dummyCost = (int)cost;
-
         if (RoomCollider.roomCol[0])
         {
 
-            if (cost >= costMinus && cameraAnimNum == 3 && !skillCoolDownBool[4] && CameraChange.objNum == 0 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 3 && !skillCoolDownBool[4] && CameraChange.objNum == 0 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -479,10 +511,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[0].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 0, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 3 && !skillCoolDownBool[4] && CameraChange.objNum == 1 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 3 && !skillCoolDownBool[4] && CameraChange.objNum == 1 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -497,10 +529,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[0].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 0, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 3 && !skillCoolDownBool[4] && CameraChange.objNum == 2 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 3 && !skillCoolDownBool[4] && CameraChange.objNum == 2 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -515,10 +547,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[0].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 0, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 3 && !skillCoolDownBool[4] && CameraChange.objNum == 3 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 3 && !skillCoolDownBool[4] && CameraChange.objNum == 3 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -533,13 +565,13 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[0].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 0, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
         }
         if (RoomCollider.roomCol[1])
         {
-            if (cost >= costMinus && cameraAnimNum == 4 && !skillCoolDownBool[4] && CameraChange.objNum == 0 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 4 && !skillCoolDownBool[4] && CameraChange.objNum == 0 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -554,10 +586,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[1].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, -90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 4 && !skillCoolDownBool[4] && CameraChange.objNum == 1 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 4 && !skillCoolDownBool[4] && CameraChange.objNum == 1 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -572,10 +604,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[1].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, -90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 4 && !skillCoolDownBool[4] && CameraChange.objNum == 2 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 4 && !skillCoolDownBool[4] && CameraChange.objNum == 2 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -590,10 +622,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[1].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, -90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 4 && !skillCoolDownBool[4] && CameraChange.objNum == 3 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 4 && !skillCoolDownBool[4] && CameraChange.objNum == 3 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -608,14 +640,14 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[1].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, -90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
 
         }
         if (RoomCollider.roomCol[2])
         {
-            if (cost >= costMinus && cameraAnimNum == 5 && !skillCoolDownBool[4] && CameraChange.objNum == 0 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 5 && !skillCoolDownBool[4] && CameraChange.objNum == 0 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -630,10 +662,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[2].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 5 && !skillCoolDownBool[4] && CameraChange.objNum == 1 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 5 && !skillCoolDownBool[4] && CameraChange.objNum == 1 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -648,10 +680,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[2].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 5 && !skillCoolDownBool[4] && CameraChange.objNum == 2 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 5 && !skillCoolDownBool[4] && CameraChange.objNum == 2 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -666,10 +698,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[2].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 5 && !skillCoolDownBool[4] && CameraChange.objNum == 3 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 5 && !skillCoolDownBool[4] && CameraChange.objNum == 3 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -684,13 +716,13 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[2].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
         }
         if (RoomCollider.roomCol[3])
         {
-            if (cost >= costMinus && cameraAnimNum == 6 && !skillCoolDownBool[4] && CameraChange.objNum == 0 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 6 && !skillCoolDownBool[4] && CameraChange.objNum == 0 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -705,10 +737,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[3].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 0, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 6 && !skillCoolDownBool[4] && CameraChange.objNum == 1 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 6 && !skillCoolDownBool[4] && CameraChange.objNum == 1 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -723,10 +755,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[3].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 0, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 6 && !skillCoolDownBool[4] && CameraChange.objNum == 2 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 6 && !skillCoolDownBool[4] && CameraChange.objNum == 2 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -741,10 +773,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[3].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 0, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 6 && !skillCoolDownBool[4] && CameraChange.objNum == 3 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 6 && !skillCoolDownBool[4] && CameraChange.objNum == 3 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -759,13 +791,13 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[3].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 0, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
         }
         if (RoomCollider.roomCol[4])
         {
-            if (cost >= costMinus && cameraAnimNum == 7 && !skillCoolDownBool[4] && CameraChange.objNum == 0 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 7 && !skillCoolDownBool[4] && CameraChange.objNum == 0 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -780,10 +812,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[4].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, -90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 7 && !skillCoolDownBool[4] && CameraChange.objNum == 1 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 7 && !skillCoolDownBool[4] && CameraChange.objNum == 1 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -798,10 +830,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[4].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, -90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 7 && !skillCoolDownBool[4] && CameraChange.objNum == 2 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 7 && !skillCoolDownBool[4] && CameraChange.objNum == 2 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -816,10 +848,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[4].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, -90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 7 && !skillCoolDownBool[4] && CameraChange.objNum == 3 && dummyCost <= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 7 && !skillCoolDownBool[4] && CameraChange.objNum == 3 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -834,12 +866,13 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[4].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, -90, 0);
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
         }
         if (RoomCollider.roomCol[5])
         {
-            if (cost >= costMinus && cameraAnimNum == 8 && !skillCoolDownBool[4] && CameraChange.objNum == 0 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 8 && !skillCoolDownBool[4] && CameraChange.objNum == 0 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -854,10 +887,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[5].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 8 && !skillCoolDownBool[4] && CameraChange.objNum == 1 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 8 && !skillCoolDownBool[4] && CameraChange.objNum == 1 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -872,10 +905,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[5].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 8 && !skillCoolDownBool[4] && CameraChange.objNum == 2 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 8 && !skillCoolDownBool[4] && CameraChange.objNum == 2 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -890,10 +923,10 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[5].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
-            if (cost >= costMinus && cameraAnimNum == 8 && !skillCoolDownBool[4] && CameraChange.objNum == 3 && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 8 && !skillCoolDownBool[4] && CameraChange.objNum == 3 && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
@@ -908,130 +941,191 @@ public class SkillCost : MonoBehaviour
                 }
                 GameObject G3 = Instantiate(ghost, lockDoorObj[5].transform.position, Quaternion.identity);
                 G3.transform.Rotate(0, 90, 0);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
         }
         if (RoomCollider.roomCol[7])
         {
-            if (cost >= costMinus && cameraAnimNum == 1 && !skillCoolDownBool[4] && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 1 && !skillCoolDownBool[4] && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
                 uiObj2.SetActive(true);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
         }
         if (RoomCollider.roomCol[6])
         {
-            if (cost >= costMinus && cameraAnimNum == 2 && !skillCoolDownBool[4] && dummyCost >= costMinus)
+            if (cost >= costMinus && cameraAnimNum == 2 && !skillCoolDownBool[4] && skillCostDown)
             {
                 skillCoolDownBool[4] = true;
                 Anim[23].SetBool("UISkill", true);
                 uiObj.SetActive(true);
-                dummyCost -= costMinus;
+                skillCostDown = false;
                 StartCoroutine(CostMinus4());
             }
         }
     }
     public void RoadDefense()
     {
-
-        if (cost >= 0 && cameraAnimNum == 1 && !skillCoolDownBool[5])
+        costMinus = 4;
+        if (cost >= costMinus && cameraAnimNum == 1 && !skillCoolDownBool[5] && skillCostDown)
         {
             skillCoolDownBool[5] = true;
-            cost -= 1;
             Anim[25].SetBool("UISkill", true);
             GameObject G = Instantiate(ghost,new Vector3(27,0,-3), Quaternion.identity);
             G.transform.Rotate(0, 180, 0);
-            costOn = true;
-
+            skillCostDown = false;
+            StartCoroutine(CostMinus4());
+            if (RoomCollider.roomCol2[7])
+            {
+                PlayerVR.hp -= 4;
+            }
         }
-        if (cost >= 0 && cameraAnimNum == 2 && !skillCoolDownBool[5])
+        if (cost >= costMinus && cameraAnimNum == 2 && !skillCoolDownBool[5] && skillCostDown)
         {
             skillCoolDownBool[5] = true;
-            cost -= 1;
             Anim[25].SetBool("UISkill", true);
             GameObject G = Instantiate(ghost, new Vector3(-27, 0, -3), Quaternion.identity);
             G.transform.Rotate(0, 180, 0);
-            costOn = true;
+            skillCostDown = false;
+            StartCoroutine(CostMinus4());
+            if (RoomCollider.roomCol2[6])
+            {
+                PlayerVR.hp -= 4;
+            }
         }
     }
     public void Ghost2()
     {
-
-        if (cost >= 0 && cameraAnimNum == 1 && !skillCoolDownBool[6])
+        costMinus = 3;
+        if (cost >= costMinus && cameraAnimNum == 0 && !skillCoolDownBool[6] && skillCostDown)
         {
             skillCoolDownBool[6] = true;
-            cost -= 1;
+            Anim[26].SetBool("UISkill", true);
+            int i = Random.Range(6, 8);
+
+            switch (i)
+            {
+                case 6: GameObject G2 = Instantiate(ghost2[0], ghost2Pos[6].transform.position, Quaternion.identity);
+                        G2.transform.Rotate(0, 180, 0); break;
+                case 7:
+                    GameObject G4 = Instantiate(ghost2[0], ghost2Pos[7].transform.position, Quaternion.identity);
+                    G4.transform.Rotate(0, 0, 0); break;
+            }
+
+            skillCostDown = false;
+            if (RoomCollider.roomCol2[0])
+            {
+                PlayerVR.hp -= 4;
+            }
+            StartCoroutine(CostMinus5());
+        }
+        if (cost >= costMinus && cameraAnimNum == 1 && !skillCoolDownBool[6] && skillCostDown)
+        {
+            skillCoolDownBool[6] = true;
             Anim[26].SetBool("UISkill", true);
             GameObject G2 = Instantiate(ghost2[0], new Vector3(27, 0, 17), Quaternion.identity);
             G2.transform.Rotate(0, 180, 0);
-            costOn = true;
+            skillCostDown = false;
+            if (RoomCollider.roomCol2[7])
+            {
+                PlayerVR.hp -= 4;
+            }
+            StartCoroutine(CostMinus5());
         }
-        if (cost >= 1 && cameraAnimNum == 2 && !skillCoolDownBool[6])
+        if (cost >= costMinus && cameraAnimNum == 2 && !skillCoolDownBool[6] && skillCostDown)
         {
             skillCoolDownBool[6] = true;
-            cost -= 1;
             Anim[26].SetBool("UISkill", true);
             GameObject G2 = Instantiate(ghost2[0], new Vector3(-27, 0, 17), Quaternion.identity);
             G2.transform.Rotate(0, 180, 0);
-            costOn = true;
+            skillCostDown = false;
+            StartCoroutine(CostMinus5());
+            if (RoomCollider.roomCol2[6])
+            {
+                PlayerVR.hp -= 4;
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 3 && !skillCoolDownBool[6])
+        if (cost >= costMinus && cameraAnimNum == 3 && !skillCoolDownBool[6] && skillCostDown)
         {
             skillCoolDownBool[6] = true;
-            cost -= 1;
             Anim[26].SetBool("UISkill", true);
             GameObject G2 = Instantiate(ghost2[1], ghost2Pos[0].transform.position, Quaternion.identity);
             G2.transform.Rotate(0, 180, 0);
-            costOn = true;
+            skillCostDown = false;
+            StartCoroutine(CostMinus5());
+            if (RoomCollider.roomCol2[0])
+            {
+                PlayerVR.hp -= 4;
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 4 && !skillCoolDownBool[6])
+        if (cost >= costMinus && cameraAnimNum == 4 && !skillCoolDownBool[6] && skillCostDown)
         {
             skillCoolDownBool[6] = true;
-            cost -= 1;
             Anim[26].SetBool("UISkill", true);
             GameObject G2 = Instantiate(ghost2[1], ghost2Pos[1].transform.position, Quaternion.identity);
             G2.transform.Rotate(0, 90, 0);
-            costOn = true;
+            skillCostDown = false;
+            StartCoroutine(CostMinus5());
+            if (RoomCollider.roomCol2[1])
+            {
+                PlayerVR.hp -= 4;
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 5 && !skillCoolDownBool[6])
+        if (cost >= costMinus && cameraAnimNum == 5 && !skillCoolDownBool[6] && skillCostDown)
         {
             skillCoolDownBool[6] = true;
-            cost -= 1;
             Anim[26].SetBool("UISkill", true);
             GameObject G2 = Instantiate(ghost2[1], ghost2Pos[2].transform.position, Quaternion.identity);
             G2.transform.Rotate(0, -90, 0);
-            costOn = true;
+            skillCostDown = false;
+            StartCoroutine(CostMinus5());
+            if (RoomCollider.roomCol2[2])
+            {
+                PlayerVR.hp -= 4;
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 6 && !skillCoolDownBool[6])
+        if (cost >= costMinus && cameraAnimNum == 6 && !skillCoolDownBool[6] && skillCostDown)
         {
             skillCoolDownBool[6] = true;
-            cost -= 1;
             Anim[26].SetBool("UISkill", true);
             GameObject G2 = Instantiate(ghost2[1], ghost2Pos[3].transform.position, Quaternion.identity);
             G2.transform.Rotate(0, 180, 0);
-            costOn = true;
+            skillCostDown = false;
+            StartCoroutine(CostMinus5());
+            if (RoomCollider.roomCol2[3])
+            {
+                PlayerVR.hp -= 4;
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 7 && !skillCoolDownBool[6])
+        if (cost >= costMinus && cameraAnimNum == 7 && !skillCoolDownBool[6] && skillCostDown)
         {
             skillCoolDownBool[6] = true;
-            cost -= 1;
             Anim[26].SetBool("UISkill", true);
             GameObject G2 = Instantiate(ghost2[1], ghost2Pos[4].transform.position, Quaternion.identity);
             G2.transform.Rotate(0, 90, 0);
-            costOn = true;
+            skillCostDown = false;
+            StartCoroutine(CostMinus5());
+            if (RoomCollider.roomCol2[4])
+            {
+                PlayerVR.hp -= 4;
+            }
         }
-        if (cost >= 1 && cameraAnimNum == 8 && !skillCoolDownBool[6])
+        if (cost >= costMinus && cameraAnimNum == 8 && !skillCoolDownBool[6] && skillCostDown)
         {
             skillCoolDownBool[6] = true;
-            cost -= 1;
             Anim[26].SetBool("UISkill", true);
             GameObject G2 = Instantiate(ghost2[1],ghost2Pos[5].transform.position, Quaternion.identity);
             G2.transform.Rotate(0, -90, 0);
-            costOn = true;
+            skillCostDown = false;
+            StartCoroutine(CostMinus5());
+            if (RoomCollider.roomCol2[5])
+            {
+                PlayerVR.hp -= 4;
+            }
         }
     }
 
@@ -1059,6 +1153,18 @@ public class SkillCost : MonoBehaviour
             cameraCoolDownBool = true;
         }
     }
+    public void RoadDefenseRight2()
+    {
+        if (!cameraCoolDownBool && cameraAnimNum != 9 && amuletBool != 9)
+        {
+            cameraAnimNum = 9;
+            cameraon.CameraSet();
+            rawImage.texture = rt[9];
+            Anim[27].SetBool("OpenBool", true);
+            Anim[19].SetBool("CoolDownBool", true);
+            cameraCoolDownBool = true;
+        }
+    }
     public void RoadDefenseLeft()
     {
         if (!cameraCoolDownBool && cameraAnimNum != 2 && amuletBool != 2)
@@ -1067,6 +1173,18 @@ public class SkillCost : MonoBehaviour
             cameraon.CameraSet();
             rawImage.texture = rt[2];
             Anim[cameraAnimNum].SetBool("OpenBool", true);
+            Anim[19].SetBool("CoolDownBool", true);
+            cameraCoolDownBool = true;
+        }
+    }
+    public void RoadDefenseLeft2()
+    {
+        if (!cameraCoolDownBool && cameraAnimNum != 10 && amuletBool != 10)
+        {
+            cameraAnimNum = 10;
+            cameraon.CameraSet();
+            rawImage.texture = rt[10];
+            Anim[28].SetBool("OpenBool", true);
             Anim[19].SetBool("CoolDownBool", true);
             cameraCoolDownBool = true;
         }
@@ -1225,15 +1343,15 @@ public class SkillCost : MonoBehaviour
         {
             switch (amuletBool)
             {
-                case 0: if (cameraAnimNum == 0) { cameraAnimNum = 1; rawImage.texture = rt[1]; Instantiate(amulet, amuletPos[0].transform.position, Quaternion.identity); } break;
-                case 1: if (cameraAnimNum == 1) { cameraAnimNum = 2; rawImage.texture = rt[2]; Instantiate(amulet, amuletPos[1].transform.position, Quaternion.identity); } break;
-                case 2: if (cameraAnimNum == 2) { cameraAnimNum = 3; rawImage.texture = rt[3]; Instantiate(amulet, amuletPos[2].transform.position, Quaternion.identity); } break;
-                case 3: if (cameraAnimNum == 3) { cameraAnimNum = 4; rawImage.texture = rt[4]; Instantiate(amulet, amuletPos[3].transform.position, Quaternion.identity); } break;
-                case 4: if (cameraAnimNum == 4) { cameraAnimNum = 5; rawImage.texture = rt[5]; Instantiate(amulet, amuletPos[4].transform.position, Quaternion.identity); } break;
-                case 5: if (cameraAnimNum == 5) { cameraAnimNum = 6; rawImage.texture = rt[6]; Instantiate(amulet, amuletPos[5].transform.position, Quaternion.identity); } break;
-                case 6: if (cameraAnimNum == 6) { cameraAnimNum = 7; rawImage.texture = rt[7]; Instantiate(amulet, amuletPos[6].transform.position, Quaternion.identity); } break;
-                case 7: if (cameraAnimNum == 7) { cameraAnimNum = 8; rawImage.texture = rt[8]; Instantiate(amulet, amuletPos[7].transform.position, Quaternion.identity); } break;
-                case 8: if (cameraAnimNum == 8) { cameraAnimNum = 0; rawImage.texture = rt[0]; Instantiate(amulet, amuletPos[8].transform.position, Quaternion.identity); } break;
+                case 0: if (cameraAnimNum == 0) { RoadDefenseRight(); amuletPos[0].SetActive(true); } break;
+                case 1: if (cameraAnimNum == 1) { RoadDefenseLeft(); amuletPos[1].SetActive(true); } break;
+                case 2: if (cameraAnimNum == 2) { Room1(); amuletPos[2].SetActive(true); } break;
+                case 3: if (cameraAnimNum == 3) { Room2(); amuletPos[3].SetActive(true); } break;
+                case 4: if (cameraAnimNum == 4) { Room3(); amuletPos[4].SetActive(true); } break;
+                case 5: if (cameraAnimNum == 5) { Room4(); amuletPos[5].SetActive(true); } break;
+                case 6: if (cameraAnimNum == 6) { Room5(); amuletPos[6].SetActive(true); } break;
+                case 7: if (cameraAnimNum == 7) { Room6(); amuletPos[7].SetActive(true); } break;
+                case 8: if (cameraAnimNum == 8) { MainHall(); amuletPos[8].SetActive(true); } break;
             }
         }
     }
@@ -1254,7 +1372,7 @@ public class SkillCost : MonoBehaviour
         {
             skillCoolDown1 += Time.deltaTime;
 
-            if (skillCoolDown1 >= 3)
+            if (skillCoolDown1 >= 10)
             {
                 Anim[21].SetBool("UISkill", false);
                 skillCoolDown1 = 0;
@@ -1265,7 +1383,7 @@ public class SkillCost : MonoBehaviour
         if (skillCoolDownBool[2])
         {
             skillCoolDown2 += Time.deltaTime;
-            if (skillCoolDown2 >= 13)
+            if (skillCoolDown2 >= 10)
             {
                 Anim[22].SetBool("UISkill", false);
                 skillCoolDown2 = 0;
@@ -1276,7 +1394,7 @@ public class SkillCost : MonoBehaviour
         if (skillCoolDownBool[3])
         {
             skillCoolDown3 += Time.deltaTime;
-            if (skillCoolDown3 >= 7)
+            if (skillCoolDown3 >= 5)
             {
                 Anim[24].SetBool("UISkill", false);
                 skillCoolDown3 = 0;
@@ -1288,7 +1406,7 @@ public class SkillCost : MonoBehaviour
         {
             skillCoolDown4 += Time.deltaTime;
 
-            if (skillCoolDown4 >= 3)
+            if (skillCoolDown4 >= 15)
             {
                 Anim[23].SetBool("UISkill", false);
                 skillCoolDown4 = 0;
@@ -1300,7 +1418,7 @@ public class SkillCost : MonoBehaviour
         {
             skillCoolDown5 += Time.deltaTime;
 
-            if (skillCoolDown5 >= 3)
+            if (skillCoolDown5 >= 15)
             {
                 Anim[25].SetBool("UISkill", false);
                 skillCoolDown5 = 0;
@@ -1312,7 +1430,7 @@ public class SkillCost : MonoBehaviour
         {
             skillCoolDown6 += Time.deltaTime;
 
-            if (skillCoolDown6 >= 3)
+            if (skillCoolDown6 >= 8)
             {
                 Anim[26].SetBool("UISkill", false);
                 skillCoolDown6 = 0;
@@ -1405,11 +1523,20 @@ public class SkillCost : MonoBehaviour
         {
             Anim[8].SetBool("OpenBool", false);
         }
+        if (cameraAnimNum != 9)
+        {
+            Anim[27].SetBool("OpenBool", false);
+        }
+        if (cameraAnimNum != 10)
+        {
+            Anim[28].SetBool("OpenBool", false);
+        }
     }
     IEnumerator CostMinus1()
     {
         cost -= 1;
         costOn = true;
+        skillCostDown = true;
         yield break;
     }
     IEnumerator CostMinus2()
@@ -1419,6 +1546,7 @@ public class SkillCost : MonoBehaviour
         yield return new WaitForSeconds(1);
         cost -= 1;
         costOn = true;
+        skillCostDown = true;
     }
     IEnumerator CostMinus3()
     {
@@ -1430,6 +1558,7 @@ public class SkillCost : MonoBehaviour
         yield return new WaitForSeconds(1);
         cost -= 1;
         costOn = true;
+        skillCostDown = true;
     }
     IEnumerator CostMinus4()
     {
@@ -1447,23 +1576,26 @@ public class SkillCost : MonoBehaviour
         yield return new WaitForSeconds(1);
         cost -= 1;
         costOn = true;
+        skillCostDown = true;
     }
     IEnumerator CostMinus5()
     {
         cost -= 1;
+        costOn = true;
         yield return new WaitForSeconds(1);
         cost -= 1;
+        costOn = true;
+        yield return new WaitForSeconds(1);
+        cost -= 1;
+        costOn = true;
+        yield return new WaitForSeconds(1);
+        cost -= 1;
+        costOn = true;
+        skillCostDown = true;
     }
-    IEnumerator CostMinus6()
+
+    void HPMinus()
     {
-        cost -= 1;
-        yield return new WaitForSeconds(1);
-        cost -= 1;
-    }
-    IEnumerator CostMinus7()
-    {
-        cost -= 1;
-        yield return new WaitForSeconds(1);
-        cost -= 1;
+        PlayerVR.hpMinus = 0.01f;
     }
 }

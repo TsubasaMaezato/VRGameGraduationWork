@@ -6,7 +6,7 @@ public class EyeHide : MonoBehaviour
 {
     private void OnEnable()
     {
-        Invoke("EyeHideTime",3);
+        Invoke("EyeHideTime",5);
     }
     void Start()
     {

@@ -125,6 +125,8 @@ public class CameraChange : MonoBehaviour
 
         pcBG[3].SetActive(true);
         pcBG[3].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
+
+        SkillCost.gameStart = true;
     }
     public void CloseRoom2()
     {
@@ -142,6 +144,9 @@ public class CameraChange : MonoBehaviour
 
         pcBG[3].SetActive(true);
         pcBG[3].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
+
+        SkillCost.gameStart = true;
+
     }
     public void CloseRoom3()
     {
@@ -159,6 +164,8 @@ public class CameraChange : MonoBehaviour
 
         pcBG[3].SetActive(true);
         pcBG[3].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
+
+        SkillCost.gameStart = true;
     }
     public void CloseRoom4()
     {
@@ -176,6 +183,8 @@ public class CameraChange : MonoBehaviour
 
         pcBG[3].SetActive(true);
         pcBG[3].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
+
+        SkillCost.gameStart = true;
     }
     public void CloseRoom5()
     {
@@ -193,6 +202,8 @@ public class CameraChange : MonoBehaviour
 
         pcBG[3].SetActive(true);
         pcBG[3].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
+
+        SkillCost.gameStart = true;
     }
     public void CloseRoom6()
     {
@@ -210,6 +221,8 @@ public class CameraChange : MonoBehaviour
 
         pcBG[3].SetActive(true);
         pcBG[3].GetComponent<Image>().sprite = Resources.Load<Sprite>("MonitorBackgroundUI0" + pcBGNum);
+
+        SkillCost.gameStart = true;
     }
     public void BGMStopIn()
     {

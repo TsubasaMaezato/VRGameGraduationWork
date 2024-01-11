@@ -6,10 +6,20 @@ public class RoomCollider : MonoBehaviour
 {
     public static bool[] roomCol = new bool[9];
     public static bool Poltergeist;
+
+    public static bool[] roomCol2 = new bool[9];
     // Start is called before the first frame update
     void Start()
     {
-
+        roomCol[0] = true;
+        roomCol[1] = true;
+        roomCol[2] = true;
+        roomCol[3] = true;
+        roomCol[4] = true;
+        roomCol[5] = true;
+        roomCol[6] = true;
+        roomCol[7] = true;
+        roomCol[8] = true;
     }
 
     // Update is called once per frame
@@ -23,39 +33,39 @@ public class RoomCollider : MonoBehaviour
         {
             if(gameObject.name == "Main")
             {
-                roomCol[8] = true;
+                roomCol2[8] = true;
             }
             if(gameObject.name == "RoomCollider1")
             {
-                roomCol[0] = true;
+                roomCol2[0] = true;
             }
             if (gameObject.name == "RoomCollider2")
             {
-                roomCol[1] = true;
+                roomCol2[1] = true;
             }
             if (gameObject.name == "RoomCollider3")
             {
-                roomCol[2] = true;
+                roomCol2[2] = true;
             }
             if (gameObject.name == "RoomCollider4")
             {
-                roomCol[3] = true;
+                roomCol2[3] = true;
             }
             if (gameObject.name == "RoomCollider5")
             {
-                roomCol[4] = true;
+                roomCol2[4] = true;
             }
             if (gameObject.name == "RoomCollider6")
             {
-                roomCol[5] = true;
+                roomCol2[5] = true;
             }
             if(gameObject.name == "LeftCorriderCollider")
             {
-                roomCol[6] = true;
+                roomCol2[6] = true;
             }
             if (gameObject.name == "RightCorriderCollider")
             {
-                roomCol[7] = true;
+                roomCol2[7] = true;
             }
         }
     }
@@ -65,39 +75,39 @@ public class RoomCollider : MonoBehaviour
         {
             if (gameObject.name == "Main")
             {
-                roomCol[8] = false;
+                roomCol2[8] = false;
             }
             if (gameObject.name == "RoomCollider1")
             {
-                roomCol[0] = false;
+                roomCol2[0] = false;
             }
             if (gameObject.name == "RoomCollider2")
             {
-                roomCol[1] = false;
+                roomCol2[1] = false;
             }
             if (gameObject.name == "RoomCollider3")
             {
-                roomCol[2] = false;
+                roomCol2[2] = false;
             }
             if (gameObject.name == "RoomCollider4")
             {
-                roomCol[3] = false;
+                roomCol2[3] = false;
             }
             if (gameObject.name == "RoomCollider5")
             {
-                roomCol[4] = false;
+                roomCol2[4] = false;
             }
             if (gameObject.name == "RoomCollider6")
             {
-                roomCol[5] = false;
+                roomCol2[5] = false;
             }
             if (gameObject.name == "LeftCorriderCollider")
             {
-                roomCol[6] = false;
+                roomCol2[6] = false;
             }
             if (gameObject.name == "RightCorriderCollider")
             {
-                roomCol[7] = false;
+                roomCol2[7] = false;
             }
         }
     }
